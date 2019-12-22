@@ -105,12 +105,13 @@ namespace WebSocket.Chat
 
     public class User
     {
-
         public string Name { get; set; }
 
         public string Address { get; set; }
+
         [JsonIgnore]
         public ISession Session { get; set; }
+
         [JsonIgnore]
         public Room Room { get; set; }
 
@@ -145,6 +146,7 @@ namespace WebSocket.Chat
             }
 
         }
+
         public User[] GetOnlines()
         {
             lock (Users)
@@ -164,7 +166,6 @@ namespace WebSocket.Chat
                 Command quit = new Command { Type = "enter",Message=$"enter room", User = user };
                 Send(quit);
             }
-
         }
 
         public void Exit(User user)

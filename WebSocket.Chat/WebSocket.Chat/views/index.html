@@ -16,9 +16,7 @@
 </head>
 <body>
     <div id="page">
-        <page-header>
-
-        </page-header>
+        <page-header> </page-header>
         <div class="container" style="margin-top:110px;">
             <div class="row">
                 <ul style="list-style:none;">
@@ -37,13 +35,9 @@
         </div>
         <page-footer :status="loginStatus" @login="onLogin($event)"
                      @talk="onTalk($event)" @select="onSelectRoom($event)" :rooms="getRooms.result">
-
         </page-footer>
     </div>
     <script>
-        beetlex.websocket.connected = function () {
-           
-        };
         beetlex.websocket.receive = function (r) {
             page.messages.push(r);
         };

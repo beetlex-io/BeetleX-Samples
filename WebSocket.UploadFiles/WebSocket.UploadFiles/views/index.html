@@ -22,8 +22,7 @@
                 <form>
                     <div class="form-group">                     
                         <input ref="upload" @change="onUpload" type="file" multiple>
-                    </div>
-                  
+                    </div>                
                 </form>
                 <div @drop="onFileDrop" @dragover="event.preventDefault();" class="panel panel-default" style="min-height:400px;">
                     <div v-for="item in uploadFiles.items" class="upload-bar">
