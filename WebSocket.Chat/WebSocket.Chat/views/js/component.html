@@ -22,7 +22,7 @@
     </div>
 </template>
 <template id="__footer">
-    <div class="navbar navbar-inverse navbar-fixed-bottom" style="height:30px;background-color:#e4e4e4;border-color:#fff;padding-top:10px;">
+    <div class="navbar navbar-inverse navbar-fixed-bottom" style="height:30px;background-color:#e4e4e4;border-color:#fff;padding-top:6px;text-align:center;">
         <div class="container">
             <form v-if="!status" class="form-inline">
                 <div class="form-group">
@@ -46,7 +46,7 @@
                 </div>
                 <div v-if="roomName!='Rooms'" class="form-group">
 
-                    <input type="text" v-model="message" class="form-control" style="width:300px;">
+                    <input type="text" v-model="message" class="form-control" style="width:500px;">
                 </div>
                 <button v-if="roomName!='Rooms'" type="button" class="btn btn-default" @click="onTalk">Talk</button>
             </form>

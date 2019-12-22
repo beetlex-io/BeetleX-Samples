@@ -10,7 +10,6 @@ namespace Server
         private static IServer server;
         public static void Main(string[] args)
         {
-
             server = SocketFactory.CreateTcpServer<Program, Messages.ProtobufPacket>();
             //server.Options.DefaultListen.Port =9090;
             //server.Options.DefaultListen.Host = "127.0.0.1";

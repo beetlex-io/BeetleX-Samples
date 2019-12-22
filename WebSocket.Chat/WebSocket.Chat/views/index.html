@@ -19,7 +19,7 @@
         <page-header>
 
         </page-header>
-        <div class="container" style="margin-top:60px;">
+        <div class="container" style="margin-top:110px;">
             <div class="row">
                 <ul style="list-style:none;">
                     <li v-for="item in messages" class="message">
@@ -35,7 +35,8 @@
                 </ul>
             </div>
         </div>
-        <page-footer :status="loginStatus" @login="onLogin($event)" @talk="onTalk($event)" @select="onSelectRoom($event)" :rooms="getRooms.result">
+        <page-footer :status="loginStatus" @login="onLogin($event)"
+                     @talk="onTalk($event)" @select="onSelectRoom($event)" :rooms="getRooms.result">
 
         </page-footer>
     </div>
