@@ -9,7 +9,7 @@ namespace Client
     class Program
     {
         static XRPCClient client;
-        static IAmount henry, ken;
+        static IAmount henry, ken, none;
         static void Main(string[] args)
         {
             client = new XRPCClient("localhost", 9090);
@@ -24,7 +24,7 @@ namespace Client
         {
             await Income();
             await Pay();
-            Console.WriteLine($"henry:{await henry.GetValue()} | ken:{await ken.GetValue()}");
+            Console.WriteLine($"henry actor:{await henry.GetValue()} | ken actor:{await ken.GetValue()}");
         }
 
         static async Task Income()
@@ -34,8 +34,12 @@ namespace Client
             {
                 var t = Task.Run(async () =>
                 {
-                    await henry.Income(10);
-                    await ken.Income(10);
+                    for (int k = 0; k < 100; k++)
+                    {
+                        await henry.Income(10);
+                        await ken.Income(10);
+
+                    }
                 });
                 tasks.Add(t);
             }
@@ -50,8 +54,12 @@ namespace Client
             {
                 var t = Task.Run(async () =>
                 {
-                    await henry.Pay(10);
-                    await ken.Pay(10);
+                    for (int k = 0; k < 100; k++)
+                    {
+                       await henry.Pay(10);
+                        await ken.Pay(10);
+
+                    }
                 });
                 tasks.Add(t);
             }

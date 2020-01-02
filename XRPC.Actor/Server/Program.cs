@@ -16,7 +16,7 @@ namespace Server
            {
                services.UseXRPC(s =>
                {
-                   s.ServerOptions.LogLevel = BeetleX.EventArgs.LogType.Debug;
+                   s.ServerOptions.LogLevel = BeetleX.EventArgs.LogType.Warring;
                    s.ServerOptions.DefaultListen.Port = 9090;
                    s.RPCOptions.ParameterFormater = new JsonPacket();//default messagepack
                },
@@ -32,7 +32,7 @@ namespace Server
         Task Pay(int value);
         Task<int> GetValue();
     }
-    [EventNext.Service(typeof(IAmount))]
+    [Service(typeof(IAmount))]
     public class AmountImpl : IAmount
     {
 

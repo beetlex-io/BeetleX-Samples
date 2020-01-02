@@ -63,5 +63,10 @@ namespace Client
                 MessageBox.Show(e_.Message);
             }
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            
+        }
     }
 }

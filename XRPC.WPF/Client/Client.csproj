@@ -35,11 +35,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BeetleX, Version=1.4.7.0, Culture=neutral, PublicKeyToken=c9cb087619adee21, processorArchitecture=MSIL">
-      <HintPath>..\packages\BeetleX.1.4.7\lib\netstandard2.0\BeetleX.dll</HintPath>
+    <Reference Include="BeetleX, Version=1.4.8.0, Culture=neutral, PublicKeyToken=c9cb087619adee21, processorArchitecture=MSIL">
+      <HintPath>..\packages\BeetleX.1.4.8\lib\netstandard2.0\BeetleX.dll</HintPath>
     </Reference>
-    <Reference Include="BeetleX.XRPC.Clients, Version=0.7.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BeetleX.XRPC.Clients.0.7.2\lib\netstandard2.0\BeetleX.XRPC.Clients.dll</HintPath>
+    <Reference Include="BeetleX.XRPC.Clients, Version=0.7.3.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BeetleX.XRPC.Clients.0.7.3.3\lib\netstandard2.0\BeetleX.XRPC.Clients.dll</HintPath>
     </Reference>
     <Reference Include="MessagePack, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
       <HintPath>..\packages\MessagePack.2.0.323\lib\netstandard2.0\MessagePack.dll</HintPath>

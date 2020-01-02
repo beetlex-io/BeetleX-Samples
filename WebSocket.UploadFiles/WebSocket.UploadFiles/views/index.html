@@ -26,7 +26,9 @@
                 </form>
                 <div @drop="onFileDrop" @dragover="event.preventDefault();" class="panel panel-default" style="min-height:400px;">
                     <div v-for="item in uploadFiles.items" class="upload-bar">
-                        <div class="uploadstats-bar" :style="{width:item.percent+'%'}">[{{item.percent}}%]{{item.name}}</div>
+                        <div class="uploadstats-bar" :style="{width:item.percent+'%'}">
+                        [{{item.percent}}%]{{item.name}}
+                        </div>
                     </div>
                 </div>
             </div>
