@@ -1,0 +1,24 @@
+﻿<Window x:Class="Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <ToolBar Height="32" VerticalAlignment="Top">
+            <TextBox x:Name="txtName" Margin="0" TextWrapping="Wrap" Text="admin" VerticalAlignment="Stretch" Width="90"/>
+            <TextBox x:Name="txtPwd" Margin="0" TextWrapping="Wrap" Text="123456" VerticalAlignment="Stretch" Width="90"/>
+            <Button x:Name="cmdLogin" Content="Login" HorizontalAlignment="Left"  VerticalAlignment="Stretch" Width="75" Margin="0" Click="CmdLogin_Click"/>
+            <Button x:Name="cmdSearch" Content="Search" HorizontalAlignment="Left"  VerticalAlignment="Stretch" Width="75" Margin="0" Click="CmdSearch_Click"/>
+        </ToolBar>
+        <DataGrid x:Name="lstEmployees" Margin="0,37,0,40"/>
+        <StatusBar Height="40" Margin="0" VerticalAlignment="Bottom">
+            <Label Content="Token:"/>
+            <Label x:Name="txtToken" Content=""/>
+        </StatusBar>
+
+
+    </Grid>
+</Window>
