@@ -19,6 +19,7 @@ namespace Server
                 services.AddSingleton(new User { Name = "BeetleX" });
                 services.UseXRPC(s =>
                 {
+                    
                     s.ServerOptions.LogLevel = BeetleX.EventArgs.LogType.Trace;
                     s.ServerOptions.DefaultListen.Port = 9090;
                     s.RPCOptions.ParameterFormater = new JsonPacket();//default messagepack

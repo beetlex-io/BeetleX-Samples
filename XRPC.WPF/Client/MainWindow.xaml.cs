@@ -1,4 +1,5 @@
 ﻿using BeetleX.XRPC.Clients;
+using BeetleX.XRPC.Packets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
