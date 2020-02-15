@@ -18,7 +18,7 @@ namespace Server
         }
         protected override void OnReceiveMessage(IServer server, ISession session, object message)
         {
-            Console.WriteLine(message);
+           // Console.WriteLine(message);
             server.Send($"hello {message}", session);
         }
     }
@@ -30,7 +30,7 @@ namespace Server
             return new StringPacket();
         }
 
-        protected override object OnReader(ISession session, PipeStream stream)
+        protected override object OnRead(ISession session, PipeStream stream)
         {
             return stream.ReadString(CurrentSize);
         }

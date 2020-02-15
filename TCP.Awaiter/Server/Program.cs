@@ -30,7 +30,7 @@ namespace Server
             return new StringPacket();
         }
 
-        protected override object OnReader(ISession session, PipeStream stream)
+        protected override object OnRead(ISession session, PipeStream stream)
         {
             return stream.ReadString(CurrentSize);
         }

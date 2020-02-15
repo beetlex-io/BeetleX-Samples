@@ -39,8 +39,8 @@ namespace HttpGateway.LogPlugin
                 o.WriteLog = true;
             });
             g.Open();
-            g.LoadPlugin(typeof(Bumblebee.Configuration.Config).Assembly);
-            g.PluginCenter.RequestedHandlers.Add(new ConsoleLog());
+            g.LoadPlugin(typeof(Bumblebee.Configuration.Config).Assembly, typeof(Program).Assembly);
+
             g.Pluginer.SetRequested("custom_console_log");
             if (Environment.OSVersion.Platform == PlatformID.Win32NT)
             {

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+    <script src="js/vue.js"></script>
+    <script src="js/axios.js"></script>
+    <script src="js/beetlex4axios.js"></script>
+    <script src="js/component.js"></script>
+    <link href="css/jsoneditor.min.css" rel="stylesheet" />
+    <script src="js/jsoneditor.min.js"></script>
+    <title>Json Editor</title>
+
+</head>
+<body>
+    <div id="page">
+        <page-header>
+
+        </page-header>
+
+        <div class="view_code">
+            <div id="jsoneditor_code" style="height:100%;width:100%"></div>
+           
+        </div>
+
+      
+        <page-footer>
+
+
+        </page-footer>
+    </div>
+    <script>
+        var editor_code;
+        var editor_tree;
+        var model = {
+            fullscreen:false,
+        };
+        var page = new Vue({
+            el: '#page', data: model,
+            methods: {
+                initCode: function () {
+                    var container = document.getElementById('jsoneditor_code')
+                    var options = {
+                        mode: 'code',
+                        modes: ['code', 'view', 'preview'], 
+                        onEditable: function (node) {
+                            if (!node.path) {
+                                // In modes code and text, node is empty: no path, field, or value
+                                // returning false makes the text area read-only
+                                return true;
+                            }
+                        },
+                        onError: function (err) {
+                         
+                        },
+                        onModeChange: function (newMode, oldMode) {
+                            console.log('Mode switched from', oldMode, 'to', newMode)
+                        }
+                    }
+
+                    editor_code = new JSONEditor(container, options, {})
+                }
+
+            }
+        });
+        page.initCode();
+        
+
+    </script>
+</body>
+
+</html>

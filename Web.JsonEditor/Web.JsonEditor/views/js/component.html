@@ -1,0 +1,46 @@
+﻿<template id="__header">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+
+            <span class="navbar-brand " href="http://beetlex.io" target="_blank">Json Editor</span>
+                
+                <ul class="nav navbar-nav navbar-right ">
+                    <li><a href="http://beetlex.io" target="_blank">About</a></li>
+                </ul>
+          
+        </div>
+    </div>
+</template>
+<template id="__footer">
+    <div class="navbar navbar-inverse navbar-fixed-bottom" style="height:26px;">
+        <div class="container">
+            <p style="text-align:center;">copyright © 2019-2020 <a href="http://beetlex.io" target="_blank">beetlex.io</a>  email:henryfan@msn.com | wechat:henryfan128</p>
+        </div>
+    </div>
+</template>
+<script>
+
+    Vue.component('page-header', {
+        props: ['info', 'page'],
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        template: __header
+    });
+
+    Vue.component('page-footer', {
+        props: ['info'],
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        template: __footer,
+    })
+
+</script>
+
+
+

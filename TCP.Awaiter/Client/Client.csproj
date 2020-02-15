@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BeetleX, Version=1.4.9.0, Culture=neutral, PublicKeyToken=c9cb087619adee21, processorArchitecture=MSIL">
-      <HintPath>..\packages\BeetleX.1.4.9\lib\netstandard2.0\BeetleX.dll</HintPath>
+    <Reference Include="BeetleX, Version=1.4.9.6, Culture=neutral, PublicKeyToken=b85c46f9bbc85381, processorArchitecture=MSIL">
+      <HintPath>..\packages\BeetleX.1.4.9.6\lib\netstandard2.0\BeetleX.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
