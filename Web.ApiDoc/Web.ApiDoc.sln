@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1022
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.ApiDoc", "Web.ApiDoc\Web.ApiDoc.csproj", "{39AEAC50-7F52-4713-90BB-FCB5B43D66C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39AEAC50-7F52-4713-90BB-FCB5B43D66C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39AEAC50-7F52-4713-90BB-FCB5B43D66C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39AEAC50-7F52-4713-90BB-FCB5B43D66C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39AEAC50-7F52-4713-90BB-FCB5B43D66C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F74A878-8E34-46A5-ABF5-A3D54EB89FFE}
+	EndGlobalSection
+EndGlobal
