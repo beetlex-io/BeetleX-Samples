@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="css/element.css" rel="stylesheet" />
+    <link href="css/railscasts.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+    <script src="js/vue.js"></script>
+    <script src="js/axios.js"></script>
+    <script src="js/beetlex4axios.js"></script>
+    <script src="js/element.js"></script>
+    <script src="js/vue-auto.js"></script>
+
+    <script src="models/models-menu.js"></script>
+    <script src="models/models-header.js"></script>
+    <script src="models/models-footer.js"></script>
+    <script src="models/models-base.js"></script>
+    <script src="models/models-login.js"></script>
+    <script src="models/models-register.js"></script>
+    <script src="models/models-employees.js"></script>
+    <script src="models/models-employee.js"></script>
+    <script src="models/models-orders.js"></script>
+    <title>BeetleX webapi doc</title>
+</head>
+<body>
+    <div id="page">
+        <models-menu></models-menu>
+        <models-footer></models-footer>
+        <div class="main-content">
+            <component :is="component" ref="main" :token="token"></component>
+        </div>
+    </div>
+    <script>
+        var page = new Vue({
+            el: '#page',
+            data: {
+                component: 'models-base',
+                token: {},
+            },
+            methods: {
+
+            },
+            mounted() {
+
+
+            }
+        });
+        Vue.prototype.$open = function (name, token) {
+            page.token = token;
+            page.component = name;
+        };
+        beetlex.error = function (msg) {
+            page.$message.error(msg);
+        };
+    </script>
+</body>
+</html>

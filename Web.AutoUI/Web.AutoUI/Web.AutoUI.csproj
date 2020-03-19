@@ -1,0 +1,99 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BeetleX.FastHttpApi" Version="1.8.1" />
+    <PackageReference Include="BeetleX.FastHttpApi.ApiDoc" Version="0.7.3" />
+    <PackageReference Include="BeetleX.FastHttpApi.Hosting" Version="1.2.2" />
+    <PackageReference Include="Northwind.Data" Version="1.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="views\models\models-base.html">
+      <Generator>VueModel2</Generator>
+      <LastGenOutput>models-base.js</LastGenOutput>
+    </None>
+    <None Update="views\models\models-base.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>models-base.html</DependentUpon>
+    </None>
+    <None Update="views\models\models-employee.html">
+      <Generator>VueModel2</Generator>
+      <LastGenOutput>models-employee.js</LastGenOutput>
+    </None>
+    <None Update="views\models\models-employee.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>models-employee.html</DependentUpon>
+    </None>
+    <None Update="views\models\models-employees.html">
+      <Generator>VueModel2</Generator>
+      <LastGenOutput>models-employees.js</LastGenOutput>
+    </None>
+    <None Update="views\models\models-employees.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>models-employees.html</DependentUpon>
+    </None>
+    <None Update="views\models\models-footer.html">
+      <Generator>VueModel2</Generator>
+      <LastGenOutput>models-footer.js</LastGenOutput>
+    </None>
+    <None Update="views\models\models-footer.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>models-footer.html</DependentUpon>
+    </None>
+    <None Update="views\models\models-header.html">
+      <Generator>VueModel2</Generator>
+      <LastGenOutput>models-header.js</LastGenOutput>
+    </None>
+    <None Update="views\models\models-header.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>models-header.html</DependentUpon>
+    </None>
+    <None Update="views\models\models-login.html">
+      <Generator>VueModel2</Generator>
+      <LastGenOutput>models-login.js</LastGenOutput>
+    </None>
+    <None Update="views\models\models-login.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>models-login.html</DependentUpon>
+    </None>
+    <None Update="views\models\models-menu.html">
+      <Generator>VueModel2</Generator>
+      <LastGenOutput>models-menu.js</LastGenOutput>
+    </None>
+    <None Update="views\models\models-menu.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>models-menu.html</DependentUpon>
+    </None>
+    <None Update="views\models\models-orders.html">
+      <Generator>VueModel2</Generator>
+      <LastGenOutput>models-orders.js</LastGenOutput>
+    </None>
+    <None Update="views\models\models-orders.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>models-orders.html</DependentUpon>
+    </None>
+    <None Update="views\models\models-register.html">
+      <Generator>VueModel2</Generator>
+      <LastGenOutput>models-register.js</LastGenOutput>
+    </None>
+    <None Update="views\models\models-register.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>models-register.html</DependentUpon>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,24 @@
+﻿<div>
+    <auto-form ref="login" url="/login" v-model="login.data" size="mini">
+
+    </auto-form>
+    <el-button size="mini" @click="if($refs.login.success())login.post()">
+        登陆
+    </el-button>
+</div>
+<script>
+    {
+        data(){
+            return {
+                login: new beetlexAction('/login', {})
+            }
+        },
+        mounted() {
+
+            this.login.requested = (r) => {
+                alert(JSON.stringify(r));
+            };
+        }
+        
+    }
+</script>

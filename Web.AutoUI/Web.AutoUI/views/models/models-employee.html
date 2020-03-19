@@ -1,0 +1,40 @@
+﻿<div>
+    <auto-form url="/SaveEmploye" ref="form" v-model="employee" size="mini" @completed="onCompleted">
+
+    </auto-form>
+    <el-button @click="onSave" size="mini">保存</el-button>
+</div>
+<script>
+    {
+        props: ['token'],
+            data(){
+            return {
+                employee: this.token,
+                saveEmployee: new beetlexAction('/SaveEmploye'),
+            }
+        },
+        methods: {
+            onCompleted(){
+                this.$refs.form.getField('FirstName').enabled = false;
+                this.$refs.form.getField('LastName').enabled = false;
+            },
+            onSave(){
+                this.employee.id = this.token.EmployeeID;
+                this.saveEmployee.post(this.employee);
+            }
+        },
+        mounted(){
+            this.saveEmployee.requested = (r) => {
+                this.$message({
+                    message: JSON.stringify(r, 0, 4),
+                    type: 'success'
+                });
+            };
+        },
+        watch: {
+            token(val){
+                this.employee = val;
+            }
+        }
+    }
+</script>
