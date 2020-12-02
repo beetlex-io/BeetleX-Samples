@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="views\index.html" />
+    <None Remove="views\vue\customers.vue" />
+    <None Remove="views\vue\mypanel.vue" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="views\index.html" />
+    <EmbeddedResource Include="views\vue\customers.vue" />
+    <EmbeddedResource Include="views\vue\mypanel.vue" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BeetleX.WebFamily" Version="0.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NorthwindEFCore\NorthwindEFCoreSqlite.csproj" />
+  </ItemGroup>
+
+</Project>
