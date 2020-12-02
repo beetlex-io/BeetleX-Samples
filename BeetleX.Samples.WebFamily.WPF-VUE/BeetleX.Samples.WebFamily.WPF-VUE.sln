@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeetleX.Samples.WebFamily.WPF-VUE", "BeetleX.Samples.WebFamily.WPF-VUE\BeetleX.Samples.WebFamily.WPF-VUE.csproj", "{F1E58220-8FC2-420C-A267-045C4F912155}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1E58220-8FC2-420C-A267-045C4F912155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E58220-8FC2-420C-A267-045C4F912155}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E58220-8FC2-420C-A267-045C4F912155}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E58220-8FC2-420C-A267-045C4F912155}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F441BC74-2297-4AB8-A482-31CCD4F47C07}
+	EndGlobalSection
+EndGlobal

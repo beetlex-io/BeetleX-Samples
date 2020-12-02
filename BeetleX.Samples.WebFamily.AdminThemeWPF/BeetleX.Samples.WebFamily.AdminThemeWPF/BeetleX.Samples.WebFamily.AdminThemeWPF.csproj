@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="views\css\website.css" />
+    <None Remove="views\index.html" />
+    <None Remove="views\js\echarts.js" />
+    <None Remove="views\vue\about.vue" />
+    <None Remove="views\vue\category.vue" />
+    <None Remove="views\vue\customerinfo.vue" />
+    <None Remove="views\vue\customers.vue" />
+    <None Remove="views\vue\employeeinfo.vue" />
+    <None Remove="views\vue\employees.vue" />
+    <None Remove="views\vue\home.vue" />
+    <None Remove="views\vue\menus.vue" />
+    <None Remove="views\vue\orders.vue" />
+    <None Remove="views\vue\products.vue" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="views\css\website.css" />
+    <EmbeddedResource Include="views\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\js\echarts.js" />
+    <EmbeddedResource Include="views\vue\about.vue" />
+    <EmbeddedResource Include="views\vue\category.vue" />
+    <EmbeddedResource Include="views\vue\customerinfo.vue" />
+    <EmbeddedResource Include="views\vue\customers.vue" />
+    <EmbeddedResource Include="views\vue\employeeinfo.vue" />
+    <EmbeddedResource Include="views\vue\employees.vue" />
+    <EmbeddedResource Include="views\vue\home.vue" />
+    <EmbeddedResource Include="views\vue\menus.vue" />
+    <EmbeddedResource Include="views\vue\orders.vue" />
+    <EmbeddedResource Include="views\vue\products.vue" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BeetleX.WebFamily" Version="0.8.5" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.664.37" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NorthwindEFCore\NorthwindEFCoreSqlite.csproj" />
+  </ItemGroup>
+
+</Project>

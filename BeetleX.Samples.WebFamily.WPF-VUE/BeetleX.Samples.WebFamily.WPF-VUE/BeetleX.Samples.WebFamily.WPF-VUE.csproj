@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>BeetleX.Samples.WebFamily.WPF_VUE</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="views\index.html" />
+    <None Remove="views\vue\hello.vue" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="views\index.html" />
+    <EmbeddedResource Include="views\vue\hello.vue" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BeetleX.WebFamily" Version="0.8.5" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.664.37" />
+  </ItemGroup>
+
+</Project>
