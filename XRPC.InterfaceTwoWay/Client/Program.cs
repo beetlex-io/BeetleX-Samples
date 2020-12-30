@@ -11,7 +11,7 @@ namespace Client
         static void Main(string[] args)
         {
             client = new XRPCClient("192.168.2.18", 9090);
-            client.PingTimeout = 5;
+            client.PingTime = 5;
             client.Options.ParameterFormater = new JsonPacket();
             client.Register<IUser>(new Program());
             var user = client.Create<IUser>();
