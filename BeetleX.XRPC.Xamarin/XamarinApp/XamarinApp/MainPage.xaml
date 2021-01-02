@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinApp.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="10" CornerRadius="0">
+            <Label Text="Beetlex xrpc!" 
+                   HorizontalTextAlignment="Center" TextColor="White" FontSize="28"/>
+        </Frame>
+        <Grid x:Name="layoutGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80" ></ColumnDefinition>
+                <ColumnDefinition Width="*" ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" >
+
+                </RowDefinition>
+                <RowDefinition Height="*" >
+
+                </RowDefinition>
+            </Grid.RowDefinitions>
+            <Label HorizontalOptions="Center" Text="Name" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"></Label>
+            <Entry x:Name="userName" Placeholder="user name" Grid.Column="1"></Entry>
+            <Label HorizontalOptions="Center" Text="Password" Grid.Row="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"></Label>
+            <Entry x:Name="userPwd" Placeholder="password" Grid.Column="1" Grid.Row="1"></Entry>
+        </Grid>
+        <Button x:Name="cmdLogin" Text="login" Clicked="Button_Clicked" />
+
+        <Label x:Name="txtResult"></Label>
+    </StackLayout>
+
+</ContentPage>
