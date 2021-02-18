@@ -95,7 +95,7 @@ namespace Web.JWT
                 HttpApiServer server = request.Server;
                 if (server.EnableLog(LogType.Warring))
                 {
-                    server.Log(LogType.Warring, $"{request.RemoteIPAddress} get token error {e_.Message}");
+                    server.Log(LogType.Warring,null, $"{request.RemoteIPAddress} get token error {e_.Message}");
                 }
                 return null;
             }

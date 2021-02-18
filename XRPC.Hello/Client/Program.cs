@@ -9,18 +9,17 @@ namespace Client
     {
         static XRPCClient client;
         static IHello hello;
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             client = new XRPCClient("localhost", 9090);
             client.Options.ParameterFormater = new JsonPacket();//default messagepack
             hello = client.Create<IHello>();
-            while(true)
+            while (true)
             {
                 Console.Write("Enter you name:");
                 var name = Console.ReadLine();
-                var task = hello.Hello(name);
-                task.Wait();
-                Console.WriteLine(task.Result);
+                var result = await hello.Hello(name);
+                Console.WriteLine(result);
             }
             Console.Read();
         }

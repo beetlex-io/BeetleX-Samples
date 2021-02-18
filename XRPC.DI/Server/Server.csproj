@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BeetleX.XRPC.Hosting" Version="1.0.4.2" />
+    <PackageReference Include="BeetleX.XRPC.Hosting" Version="1.0.6" />
   </ItemGroup>
 
 </Project>

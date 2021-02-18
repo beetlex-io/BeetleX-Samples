@@ -17,7 +17,7 @@ namespace Web.Download
                     {
                         o.LogToConsole = true;
                         o.ManageApiEnabled = false;
-                        o.WebSocketMaxRPS = 0;
+                        o.WebSocketMaxRps = 0;
                         o.Port = 80;
                         o.SetDebug();
                         o.LogLevel = BeetleX.EventArgs.LogType.Warring;
