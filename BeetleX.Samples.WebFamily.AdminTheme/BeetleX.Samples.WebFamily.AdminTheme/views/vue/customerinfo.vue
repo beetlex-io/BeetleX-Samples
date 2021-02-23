@@ -5,7 +5,7 @@
 </div>
 <script>
     {
-        props: ['tag', 'wintitle'],
+        props: ['token', 'winid'],
             data(){
             return {
                 data: {}
@@ -14,7 +14,7 @@
         methods: {
             onSave(){
                 this.$confirmMsg('是否要保存数据?', () => {
-                    this.$close(this.wintitle);
+                    this.$closeWindow(this.winid);
                 });
             },
         },
@@ -32,8 +32,8 @@
             edit.addText("Phone", "Phone", true);
             edit.addText("Fax", "Fax", true);
             edit.addButton("save", "保存");
-            if (this.tag) {
-                edit.setValue(this.tag);
+            if (this.token) {
+                edit.setValue(this.token);
             }
             edit.bindForm(this.$refs.editor);
         },

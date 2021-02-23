@@ -38,10 +38,10 @@
             },
             onCommand(e){
                 if (e.field == 'CompanyName') {
-                    this.$open('customerinfo', '(客户)' + e.data.CompanyName, e.data);
+                    this.$openWindow('(客户)' + e.data.CompanyName, '(客户)' + e.data.CompanyName,'customerinfo',  e.data);
                 }
                 else {
-                    this.$open('orders', '(客户)' + e.data.CompanyName + '/订单', { customer: e.data.CustomerID });
+                    this.$openWindow(e.data.CompanyName + '/订单', '(客户)' + e.data.CompanyName + '/订单', 'orders', { customer: e.data.CustomerID });
                 }
             },
         },

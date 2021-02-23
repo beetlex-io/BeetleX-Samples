@@ -4,21 +4,21 @@
     </auto-form>
 </div>
 <script>
-    {
-        props: ['tag', 'wintitle'],
-            data(){
+    export default {
+        props: ['token', 'winid'],
+        data() {
             return {
                 data: {}
             };
         },
         methods: {
-            onSave(){
+            onSave() {
                 this.$confirmMsg('是否要保存数据?', () => {
-                    this.$close(this.wintitle);
+                    this.$closeWindow(this.winid);
                 });
             },
         },
-        mounted(){
+        mounted() {
             var edit = new autoData();
             edit.addText("LastName", "LastName", true).require('The value cannot be null');
             edit.addText("FirstName", "FirstName", true).require('The value cannot be null');
@@ -34,8 +34,8 @@
             f.dataurl = '/EmployeesSelectOptions';
             f.nulloption = true;
             edit.addButton("save", "保存");
-            if (this.tag) {
-                edit.setValue(this.tag);
+            if (this.token) {
+                edit.setValue(this.token);
             }
             edit.bindForm(this.$refs.editor);
         },

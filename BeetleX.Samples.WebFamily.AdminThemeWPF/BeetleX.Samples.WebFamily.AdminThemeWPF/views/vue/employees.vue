@@ -14,10 +14,10 @@
             onCommand(e){
                 console.log('employees',e)
                 if (e.field == 'Name') {
-                    this.$open('employeeinfo', '(雇员)' + e.data.Name, e.data);
+                    this.$openWindow('(雇员)' + e.data.Name, '(雇员)' + e.data.Name,'employeeinfo',  e.data);
                 }
                 else {
-                    this.$open('orders', '(雇员)' + e.data.FirstName + ' ' + e.data.LastName + '/订单', { employee: e.data.EmployeeID });
+                    this.$openWindow('(雇员)' + e.data.FirstName + ' ' + e.data.LastName + '/订单', '(雇员)' + e.data.FirstName + ' ' + e.data.LastName + '/订单','orders',  { employee: e.data.EmployeeID });
                 }
             },
             onList(){

@@ -16,7 +16,7 @@
         },
         methods: {
             onSelect(e){
-                this.$open('products', '(分类)'+e.CategoryName + '/产品', e)
+                this.$openWindow('products', '(分类)'+e.CategoryName + '/产品', e)
             },
         },
         mounted(){

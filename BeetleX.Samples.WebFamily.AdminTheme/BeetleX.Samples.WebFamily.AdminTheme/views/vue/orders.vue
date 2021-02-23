@@ -1,7 +1,7 @@
 ﻿<div>
 
     <auto-form style="position:absolute;top:5px" ref="search" size="mini" @command="onFormCommand" 
-               :style="{display:(tag.product || tag.customer || tag.employee) ?'none':''}"
+               :style="{display:(token.product || token.customer || token.employee) ?'none':''}"
                v-model="list.data">
 
     </auto-form>
@@ -90,11 +90,11 @@
 </div>
 <script>
     {
-        props: ["tag"],
+        props: ["token"],
             data(){
             return {
                 list: new beetlexAction('/Orders',
-                    { product: this.tag.product, employee: this.tag.employee, customer: this.tag.customer, index: 0 },
+                    { product: this.token.product, employee: this.token.employee, customer: this.token.customer, index: 0 },
                     { Count: 0, Index: 0, Pages: 0, Size: 0, Items: [] }),
             };
 
@@ -113,7 +113,7 @@
             },
         },
         watch: {
-            tag(val){
+            token(val){
                 this.list.data.product = val.product;
                 this.list.data.employee = val.employee;
                 this.list.data.customer = val.customer;

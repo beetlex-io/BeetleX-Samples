@@ -216,7 +216,7 @@
             }
         },
         mounted(){
-            __addResizeHandler(this.onResize);
+            this.$addResize(this.onResize);
             var dom = document.getElementById("productStats");
             this.productStats = echarts.init(dom);
             dom = document.getElementById("employeeStats");

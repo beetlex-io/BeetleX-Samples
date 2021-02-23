@@ -14,10 +14,10 @@
 </div>
 <script>
     {
-        props: ['tag'],
+        props: ['token'],
             data(){
             return {
-                data: this.tag,
+                data: this.token,
                 list: new beetlexAction('/Products', { name: '', category: '', index: 0 }, { Count: 0, Index: 0, Pages: 0, Size: 0, Items: [] }),
                 items: [],
             };
@@ -45,7 +45,7 @@
             },
             onCommand(e){
                 console.log("products cmd", e);
-                this.$open('orders', '(产品)' + e.data.ProductName + '/订单', { product: e.data.ProductID });
+                this.$openWindow('(产品)' + e.data.ProductName + '/订单', '(产品)' + e.data.ProductName + '/订单','orders', { product: e.data.ProductID });
             },
             onChange(e){
                 this.$confirmMsg('是否要保存' + e.data.ProductName + "?", () => {

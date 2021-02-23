@@ -1,6 +1,7 @@
 ﻿using BeetleX.EFCore.Extension;
 using BeetleX.FastHttpApi;
 using BeetleX.FastHttpApi.EFCore.Extension;
+using BeetleX.FastHttpApi.Jwt;
 using BeetleX.FastHttpApi.VueExtend;
 using BeetleX.WebFamily;
 using NorthwindEFCoreSqlite;
@@ -21,6 +22,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Menu = BeetleX.WebFamily.Menu;
 
 namespace BeetleX.Samples.WebFamily.AdminThemeWPF
 {
@@ -49,13 +51,63 @@ namespace BeetleX.Samples.WebFamily.AdminThemeWPF
                 o.LogToConsole = true;
             })
             .UseEFCore<NorthwindContext>()
+            .UseJWT()
             .Initialize(s =>
             {
-                s.GetWebFamily().AddAssemblies(typeof(MainWindow).Assembly);
                 s.ActionFactory.Register(this);
                 s.GetWebFamily().AddScript("echarts.js");
                 s.GetWebFamily().AddCss("website.css");
                 s.Vue().Debug();
+                WebHost.LoginHandler = (user, pwd, context) =>
+                {
+                    context.SetJwtToken(user, "user", 60 * 60);
+                    return Task.CompletedTask;
+                };
+                WebHost.Title = "Northwind";
+                WebHost.HeaderModel = "myheader";
+                WebHost.MustLogin = true;
+                WebHost.HomeModel = "home";
+
+                WebHost.GetMenus = (user, role, context) =>
+                {
+                    List<Menu> menus = new List<Menu>();
+                    var item = new Menu();
+                    item.ID = "home";
+                    item.Name = "主页";
+                    item.Img = "/images/home.png";
+                    item.Model = "home";
+                    menus.Add(item);
+
+                    item = new Menu();
+                    item.ID = "product";
+                    item.Name = "产品";
+                    item.Img = "/images/product.png";
+                    item.Model = "products";
+                    menus.Add(item);
+
+                    item = new Menu();
+                    item.ID = "order";
+                    item.Name = "订单";
+                    item.Img = "/images/order.png";
+                    item.Model = "orders";
+                    menus.Add(item);
+
+                    item = new Menu();
+                    item.ID = "customer";
+                    item.Name = "客户";
+                    item.Img = "/images/customer.png";
+                    item.Model = "customers";
+                    menus.Add(item);
+
+                    item = new Menu();
+                    item.ID = "employee";
+                    item.Name = "雇员";
+                    item.Img = "/images/employee.png";
+                    item.Model = "employees";
+                    menus.Add(item);
+
+                    return Task.FromResult(menus);
+                };
             }).Completed(s =>
             {
                 this.Dispatcher.Invoke(() =>
