@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeetleX.Samples.WebFamily.Bootstrap", "BeetleX.Samples.WebFamily.Bbootstrap\BeetleX.Samples.WebFamily.Bootstrap.csproj", "{4AF89E8E-41C5-42C0-92E8-553EEB0FB18A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4AF89E8E-41C5-42C0-92E8-553EEB0FB18A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF89E8E-41C5-42C0-92E8-553EEB0FB18A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF89E8E-41C5-42C0-92E8-553EEB0FB18A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF89E8E-41C5-42C0-92E8-553EEB0FB18A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7CA2FE9-E0AF-4F7F-BE98-B1FEC97D6DE5}
+	EndGlobalSection
+EndGlobal

@@ -52,12 +52,13 @@ namespace BeetleX.Samples.WebFamily.AdminThemeWPF
             })
             .UseEFCore<NorthwindContext>()
             .UseJWT()
-            .Initialize(s =>
+            .UseFontawesome()
+            .Initialize((http, vue, rec) =>
             {
-                s.ActionFactory.Register(this);
-                s.GetWebFamily().AddScript("echarts.js");
-                s.GetWebFamily().AddCss("website.css");
-                s.Vue().Debug();
+                http.ActionFactory.Register(this);
+                rec.AddScript("echarts.js");
+                rec.AddCss("website.css");
+                vue.Debug();
                 WebHost.LoginHandler = (user, pwd, context) =>
                 {
                     context.SetJwtToken(user, "user", 60 * 60);
@@ -74,35 +75,35 @@ namespace BeetleX.Samples.WebFamily.AdminThemeWPF
                     var item = new Menu();
                     item.ID = "home";
                     item.Name = "主页";
-                    item.Img = "/images/home.png";
+                    item.Img = "fas fa-home";
                     item.Model = "home";
                     menus.Add(item);
 
                     item = new Menu();
                     item.ID = "product";
                     item.Name = "产品";
-                    item.Img = "/images/product.png";
+                    item.Img = "fas fa-box";
                     item.Model = "products";
                     menus.Add(item);
 
                     item = new Menu();
                     item.ID = "order";
                     item.Name = "订单";
-                    item.Img = "/images/order.png";
+                    item.Img = "fas fa-shopping-cart";
                     item.Model = "orders";
                     menus.Add(item);
 
                     item = new Menu();
                     item.ID = "customer";
                     item.Name = "客户";
-                    item.Img = "/images/customer.png";
+                    item.Img = "fas fa-hospital-user";
                     item.Model = "customers";
                     menus.Add(item);
 
                     item = new Menu();
                     item.ID = "employee";
                     item.Name = "雇员";
-                    item.Img = "/images/employee.png";
+                    item.Img = "fas fa-users";
                     item.Model = "employees";
                     menus.Add(item);
 

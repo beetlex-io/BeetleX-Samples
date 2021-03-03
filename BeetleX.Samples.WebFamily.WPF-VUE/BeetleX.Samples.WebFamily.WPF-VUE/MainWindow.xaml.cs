@@ -42,17 +42,17 @@ namespace BeetleX.Samples.WebFamily.WPF_VUE
                 o.WriteLog = true;
                 o.LogToConsole = true;
             })
-            .Initialize(s =>
+            .Initialize((http,vue,rec) =>
             {
                 //注册程序集中所有控制器
                 //s.Register(typeof(MainWindow).Assembly);
                 //把当前窗体注册为​控制器
-                s.ActionFactory.Register(this);
+                http.ActionFactory.Register(this);
                 //注册Vue文件资源
-                s.GetWebFamily().AddAssemblies(typeof(MainWindow).Assembly);
+                rec.AddAssemblies(typeof(MainWindow).Assembly);
                 //s.GetWebFamily().AddScript("echarts.js"); //添加javascript文件
                 //s.GetWebFamily().AddCss("website.css"); //添加css文件
-                s.Vue().Debug();
+                vue.Debug();
             }).Completed(s =>
             {
                 this.Dispatcher.Invoke(() =>

@@ -24,10 +24,10 @@ namespace BeetleX.Samples.WebFamily.Base
                 var host = redis.Host.AddWriteHost("127.0.0.1");
                 host.MaxConnections = 50;
             })
-            .Initialize(s =>
+            .Initialize((http,vue,rec) =>
             {
-                s.GetWebFamily().AddCss("site.css");
-                s.Vue().Debug();
+                rec.AddCss("site.css");
+                vue.Debug();
             }).Run();
         }
     }
