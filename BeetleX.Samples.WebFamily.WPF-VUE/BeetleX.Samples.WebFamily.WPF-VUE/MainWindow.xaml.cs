@@ -52,6 +52,7 @@ namespace BeetleX.Samples.WebFamily.WPF_VUE
                 rec.AddAssemblies(typeof(MainWindow).Assembly);
                 //s.GetWebFamily().AddScript("echarts.js"); //添加javascript文件
                 //s.GetWebFamily().AddCss("website.css"); //添加css文件
+                http.ResourceCenter.SetDefaultPages("index.html");
                 vue.Debug();
             }).Completed(s =>
             {

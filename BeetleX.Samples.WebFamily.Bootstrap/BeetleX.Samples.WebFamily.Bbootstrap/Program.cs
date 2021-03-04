@@ -77,10 +77,7 @@ namespace BeetleX.Samples.WebFamily.Bbootstrap
                 sub.Model = "bar-label-rotation";
                 item.Childs.Add(sub);
                 result.Add(item);
-
-
                 return Task.FromResult(result);
-
             };
             WebHost host = new WebHost();
             host.RegisterController<Program>()
@@ -93,7 +90,7 @@ namespace BeetleX.Samples.WebFamily.Bbootstrap
             })
             .UseJWT()
             .UseFontawesome()
-            .UseBootstrap(PageStyle.Bootstrap)
+            .UseBootstrap(PageStyle.BootstrapDashboard)
             .Initialize((http, vue, resoure) =>
             {
                 resoure.AddCss("website.css");

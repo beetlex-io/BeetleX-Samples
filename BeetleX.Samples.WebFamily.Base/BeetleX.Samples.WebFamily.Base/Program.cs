@@ -26,6 +26,7 @@ namespace BeetleX.Samples.WebFamily.Base
             })
             .Initialize((http,vue,rec) =>
             {
+                http.ResourceCenter.SetDefaultPages("index.html");
                 rec.AddCss("site.css");
                 vue.Debug();
             }).Run();
