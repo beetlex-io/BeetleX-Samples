@@ -24,6 +24,8 @@ namespace BeetleX.Samples.WebFamily.AdminTheme
             .UseEFCore<NorthwindContext>()
             .UseJWT()
             .UseFontawesome()
+            .UseElement(PageStyle.ElementDashboard)
+
             .Initialize((http, vue, rec) =>
             {
                 rec.AddScript("echarts.js");

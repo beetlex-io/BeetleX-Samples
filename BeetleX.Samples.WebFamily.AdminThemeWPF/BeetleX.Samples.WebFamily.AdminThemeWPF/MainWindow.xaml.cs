@@ -53,6 +53,7 @@ namespace BeetleX.Samples.WebFamily.AdminThemeWPF
             .UseEFCore<NorthwindContext>()
             .UseJWT()
             .UseFontawesome()
+            .UseElement(PageStyle.ElementDashboard)
             .Initialize((http, vue, rec) =>
             {
                 http.ActionFactory.Register(this);
