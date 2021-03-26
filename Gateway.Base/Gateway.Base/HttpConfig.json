@@ -1,0 +1,16 @@
+{
+  "HttpConfig": {
+    "Host": "",
+    "Port": 80,
+    "SSL": false,
+    "CertificateFile": "",
+    "CertificatePassword": "",
+    "MaxBodyLength": 2097152,
+    "OutputStackTrace": false,
+    "BufferSize": 8192,
+    "WebSocketMaxRPS": 30,
+    "LogToConsole": true,
+    "WriteLog": false,
+    "LogLevel": "Error"
+  }
+}

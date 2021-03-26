@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpGateway.Base", "Gateway.Base\HttpGateway.Base.csproj", "{90E8E8B7-C93D-43C8-92B7-A956C207A3A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpGateway.Base", "Gateway.Base\HttpGateway.Base.csproj", "{90E8E8B7-C93D-43C8-92B7-A956C207A3A4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicServer", "LogicServer\LogicServer.csproj", "{C8D5E0A7-5384-4831-A289-30B6AAF9594D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{90E8E8B7-C93D-43C8-92B7-A956C207A3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90E8E8B7-C93D-43C8-92B7-A956C207A3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90E8E8B7-C93D-43C8-92B7-A956C207A3A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8D5E0A7-5384-4831-A289-30B6AAF9594D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8D5E0A7-5384-4831-A289-30B6AAF9594D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8D5E0A7-5384-4831-A289-30B6AAF9594D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8D5E0A7-5384-4831-A289-30B6AAF9594D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

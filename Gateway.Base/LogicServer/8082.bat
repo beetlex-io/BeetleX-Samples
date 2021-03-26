@@ -1,0 +1,1 @@
+LogicServer.exe port=8082

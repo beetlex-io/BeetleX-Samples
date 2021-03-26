@@ -3,16 +3,12 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using BeetleX;
-using Bumblebee;
-using System.Diagnostics;
-
-namespace HttpGateway.Base
+using BeetleX.FastHttpApi;
+using System.Linq;
+namespace LogicalServer
 {
     class Program
     {
-        private static Gateway g;
-
         static void Main(string[] args)
         {
 
@@ -28,25 +24,30 @@ namespace HttpGateway.Base
 
     public class HttpServerHosted : IHostedService
     {
-        private Gateway g;
+        private HttpApiServer mApiServer;
 
         public virtual Task StartAsync(CancellationToken cancellationToken)
         {
-            g = new Gateway();
-            g.GatewayQueueSize = 200;
-            g.AgentRequestQueueSize = 200;
-            g.Open();
-            g.LoadPlugin(typeof(Program).Assembly);
-            g.Agents.SetServer("http://localhost:8080", 300);
-            g.Agents.SetServer("http://localhost:8081", 300);
-            g.Agents.SetServer("http://localhost:8082", 300);
-            g.Routes.GetRoute("*").AddServer("http://localhost:8080", "http://localhost:8081", "http://localhost:8082");
+            mApiServer = new BeetleX.FastHttpApi.HttpApiServer();
+
+            mApiServer.Options.ServerTag = "Unknow server";
+            mApiServer.Options.LogLevel = BeetleX.EventArgs.LogType.Warring;
+            mApiServer.Register(typeof(Home).Assembly);
+            mApiServer.Open();
             return Task.CompletedTask;
         }
         public virtual Task StopAsync(CancellationToken cancellationToken)
         {
-            g.Dispose();
+            mApiServer.Dispose();
             return Task.CompletedTask;
+        }
+    }
+    [Controller]
+    public class Home
+    {
+        public object Customers(int count, IHttpContext context)
+        {
+            return Northwind.Data.DataHelper.Defalut.Customers.Take(count);
         }
     }
 }
