@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta charset="utf-8" />
+    <title>Beetlex WebFamily</title>
+    <link href="/css/beetlex-v1.css" rel="stylesheet" />
+    <script src="/js/beetlex-v1.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+            <div v-if="logoImg" class="navbar-brand col-md-5 col-lg-2 me-0 px-3 boot-title-logo">
+                <img :src="logoImg" />
+            </div>
+            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="vw-100" v-if="headerModel">
+                <component :is="headerModel"></component>
+            </div>
+        </header>
+        <div class="container-fluid">
+            <div class="row">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse boot-dashboard-menu">
+                    <div class="position-sticky pt-2">
+                        <ul class="nav flex-column">
+                            <template v-for="(item,i) in menus">
+                                <li v-if="item.Childs.length==0" :class="[(item.ID==activeName)?'nav-item boot-main-item boot-menu-active':'nav-item boot-main-item']">
+
+                                    <a class="nav-link" aria-current="page" href="javascript:void(0)"
+                                       @click="__menu_click();parentName='';$openWindow(item.ID, item.Name, item.Model, {});">
+                                        <i v-if="item.Img" :class="item.Img"></i>
+                                        {{item.Name}}
+                                    </a>
+
+                                </li>
+                                <li v-else :class="[item.Expend==true?'nav-item boot-main-item dropup':'nav-item boot-main-item']">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)" @click="item.Expend=!item.Expend" role="button" aria-expanded="true">
+                                        <i v-if="item.Img" :class="item.Img"></i>
+                                        {{item.Name}}
+
+                                    </a>
+                                    <ul class="nav flex-column" v-if="item.Expend==true">
+                                        <template v-for="subitem in item.Childs">
+                                            <li v-if="subitem.Name=='divider'"><hr class="dropdown-divider"></li>
+                                            <li v-else class="nav-item sub-menu-item">
+                                                <a :class="[subitem.ID==activeName?'dropdown-item boot-menu-active':'dropdown-item']"
+                                                   href="javascript:void(0)" @click="__menu_click();parentName=item.ID;$openWindow(subitem.ID, subitem.Name, subitem.Model, {});">
+                                                    <i v-if="subitem.Img" :class="subitem.Img"></i>
+                                                    {{subitem.Name}}
+
+                                                </a>
+                                            </li>
+                                        </template>
+                                    </ul>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </nav>
+
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <keep-alive>
+                        <component :is="activeModel.model" :token="activeModel.data" :winid="activeModel.id"></component>
+                    </keep-alive>
+                </main>
+
+            </div>
+
+        </div>
+        <component v-if="footerModel" :is="footerModel"></component>
+
+        <component v-if="leftModel" :is="leftModel"></component>
+
+        <component v-if="rightModel" :is="rightModel"></component>
+        <bootstrap-login-dialog :login="loginModel"></bootstrap-login-dialog>
+    </div>
+
+    <script src="/beetlex/js/webfamily.js"></script>
+    <script>
+        var logindailog;
+        __menu_click = function () {
+            document.getElementById("sidebarMenu").classList.toggle('show');
+        };
+        pageData.loginHandler = function () {
+            logindailog = new bootstrap.Modal(document.getElementById('login-modal'), {
+                keyboard: false
+            });
+            logindailog.show();
+        };
+    </script>
+</body>
+</html>

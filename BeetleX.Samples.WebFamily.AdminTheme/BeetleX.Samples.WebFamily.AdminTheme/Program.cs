@@ -33,8 +33,8 @@ namespace BeetleX.Samples.WebFamily.AdminTheme
                 vue.Debug();
                 WebHost.LoginHandler = (user, pwd, context) =>
                 {
-                    context.SetJwtToken(user, "user", 60 * 60);
-                    return Task.CompletedTask;
+                   var result=  context.SetJwtToken(user, "user", 60 * 60);
+                    return Task.FromResult((object)result);
                 };
                 WebHost.Title = "Northwind";
                 WebHost.HeaderModel = "myheader";

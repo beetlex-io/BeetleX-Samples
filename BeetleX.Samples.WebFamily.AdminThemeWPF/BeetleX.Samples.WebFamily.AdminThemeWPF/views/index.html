@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Beetlex WebFamily</title>
+    <link href="/css/beetlex-v1.css" rel="stylesheet" />
+    <script src="/js/beetlex-v1.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <div :class="[menuSize=='min'?'menu_full':'menu_min']">
+            <div class="menu-panel">
+                <div v-if="menuSize=='min'" class="menu-panel-header">
+                    <div class="web-logo">
+                        <img :src="logoImg" />
+
+                    </div>
+                    <div class="web-title">{{title}}</div>
+                    <div class="menu-resize-btn">
+                        <a title="最小化菜单" size="mini" @click="menuSize='max'">
+                            <i class="el-icon-caret-left"></i>
+                        </a>
+                    </div>
+                </div>
+                <div v-else class="menu-resize-min-btn">
+                    <a title="最大化菜单" size="mini" @click="menuSize='min'">
+                        <i class="el-icon-caret-right"></i>
+                    </a>
+                </div>
+                <webfamily-menu :menutype="'vertical'" :size="menuSize" @resize="menuSize=$event" :token="menus">
+
+                </webfamily-menu>
+
+            </div>
+         
+        </div>
+
+      
+        <div :class="menuSize=='min'?'header_min':'header_max'">
+            <keep-alive>
+                <component :is="headerModel"></component>
+            </keep-alive>
+        </div>
+
+        <div :class="menuSize=='min'?'context_min':'context_max'">
+            <keep-alive>
+                <el-tabs v-if="tabsEnabled" type="border-card" v-model="activeName" style="position:absolute;top:0px;left:0px;right:10px;bottom:10px;" class="win-tabs" :closable="true" @tab-click="onTabClick" @tab-remove="OnCloseWindows">
+                    <el-tab-pane v-for="item in windows" :label="item.title" :name="item.id" v-bind:key="item.id">
+                        <component :is="item.model" :token="item.data" :winid="item.id"></component>
+                    </el-tab-pane>
+                </el-tabs>
+                <component v-else :is="activeModel.model" :token="activeModel.data" :winid="activeModel.id"></component>
+            </keep-alive>
+        </div>
+        <el-dialog :visible.sync="loginDialogVisible" class="login-modal" :close-on-click-modal="false" :fullscreen="true" :show-close="false"
+                   width="500px"
+                   center>
+            <component :is="loginModel"></component>
+        </el-dialog>
+        <component v-if="footerModel" :is="footerModel"></component>
+    </div>
+    <script src="/beetlex/js/webfamily.js"></script>
+</body>
+</html>
