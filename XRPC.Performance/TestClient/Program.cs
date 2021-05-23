@@ -34,7 +34,7 @@ namespace TestClient
             while (true)
             {
                 System.Threading.Thread.Sleep(1000);
-                Console.WriteLine($"{DateTime.Now} {mCount:000,000,000,000}/{mCount - mLastCount:###,###,###}");
+                Console.WriteLine($"{DateTime.Now} {mCount:000,000,000,000}/RPS:{mCount - mLastCount:###,###,###}");
                 mLastCount = mCount;
             }
         }
@@ -52,7 +52,8 @@ namespace TestClient
         {
             while (true)
             {
-                await UserService.List(1);
+                //await UserService.List(1);
+                await UserService.Hello();
                 System.Threading.Interlocked.Increment(ref mCount);
             }
         }
@@ -63,6 +64,8 @@ namespace TestClient
 
 
         Task<List<User>> List(int count);
+
+        Task<string> Hello();
     }
 
     [MessagePackObject]

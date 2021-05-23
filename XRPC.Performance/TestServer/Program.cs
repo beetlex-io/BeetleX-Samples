@@ -45,6 +45,11 @@ namespace TestServer
 
         }
 
+        public Task<string> Hello()
+        {
+            return "Hello world".ToTask();
+        }
+
         public Task<List<User>> List(int count)
         {
             List<User> result = new List<User>();
@@ -65,7 +70,7 @@ namespace TestServer
 
     public interface IUserService
     {
-
+        Task<string> Hello();
 
         Task<List<User>> List(int count);
     }

@@ -8,9 +8,9 @@ namespace RedisClient.Subscribe
     {
         static void Main(string[] args)
         {
-            Redis.Default.DataFormater = new ProtobufFormater();
-            Redis.Default.Host.AddWriteHost("192.168.2.19");
-            var subscribe = Redis.Default.Subscribe();
+            DefaultRedis.Instance.DataFormater = new ProtobufFormater();
+            DefaultRedis.Instance.Host.AddWriteHost("127.0.0.1");
+            var subscribe = DefaultRedis.Instance.Subscribe();
             subscribe.Register<Employee>("employee_queue", e =>
             {
                 Console.WriteLine($"Receive employee {e.FirstName} {e.LastName}");
@@ -29,9 +29,9 @@ namespace RedisClient.Subscribe
             while (true)
             {
                 int index = ram.Next(0, 1000000);
-                await Redis.Publish("employee_queue", DataHelper.Defalut.Employees[index % DataHelper.Defalut.Employees.Count]);
+                await DefaultRedis.Instance.Publish("employee_queue", DataHelper.Defalut.Employees[index % DataHelper.Defalut.Employees.Count]);
                 System.Threading.Thread.Sleep(1000);
-                await Redis.Publish("customer_queue", DataHelper.Defalut.Customers[index % DataHelper.Defalut.Customers.Count]);
+                await DefaultRedis.Instance.Publish("customer_queue", DataHelper.Defalut.Customers[index % DataHelper.Defalut.Customers.Count]);
                 System.Threading.Thread.Sleep(1000);
             }
         }

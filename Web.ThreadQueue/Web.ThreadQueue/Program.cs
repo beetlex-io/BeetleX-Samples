@@ -29,8 +29,14 @@ namespace Web.ThreadQueue
     [Controller]
     public class Home
     {
-       
-        public object NoneQueue(string name, IHttpContext context)
+
+        [RequestMaxRPS(100)]
+        public object MasRps(IHttpContext context)
+        {
+            return DateTime.Now;
+        }
+
+        public object None(string name, IHttpContext context)
         {
             return $"Name:{name}|QueueID:{context.Queue?.ID}|Time:{DateTime.Now}";
         }

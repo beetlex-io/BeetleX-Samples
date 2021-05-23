@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BeetleX.XRPC.Clients" Version="1.0.6" />
+    <PackageReference Include="BeetleX.XRPC.Clients" Version="1.0.9" />
+    <PackageReference Include="Northwind.Data" Version="1.2.3" />
   </ItemGroup>
 
 </Project>
