@@ -17,7 +17,7 @@ namespace Web.UploadFiles
                         o.ManageApiEnabled = false;
                         o.Port = 80;
                         o.SetDebug();
-                        o.LogLevel = BeetleX.EventArgs.LogType.Warring;
+                        o.LogLevel = BeetleX.EventArgs.LogType.Debug;
                     },
                     typeof(Program).Assembly);
                 });
