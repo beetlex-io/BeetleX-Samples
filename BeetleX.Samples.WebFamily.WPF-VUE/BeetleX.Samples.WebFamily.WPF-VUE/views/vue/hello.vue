@@ -8,9 +8,9 @@
     <p>{{hello.result}}</p>
 </div>
 <script>
-    {
+    export default {
         props: [],
-            data(){
+        data() {
             return {
                 name_rules: [{ required: true, message: '值不能为空！', trigger: 'blur' },],
                 record: {
@@ -33,7 +33,7 @@
                 this.$refs['dataform'].resetFields();
             }
         },
-        mounted(){
+        mounted() {
         }
     }
 </script>

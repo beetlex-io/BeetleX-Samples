@@ -56,13 +56,14 @@ namespace BeetleX.Samples.WebFamily.AdminThemeWPF
             .UseElement(PageStyle.ElementDashboard)
             .Initialize((http, vue, rec) =>
             {
+                rec.AddAssemblies(typeof(MainWindow).Assembly);
                 http.ActionFactory.Register(this);
                 rec.AddScript("echarts.js");
                 rec.AddCss("website.css");
                 vue.Debug();
                 WebHost.LoginHandler = (user, pwd, context) =>
                 {
-                   object token= context.SetJwtToken(user, "user", 60 * 60);
+                    object token = context.SetJwtToken(user, "user", 60 * 60);
                     return Task.FromResult(token);
                 };
                 WebHost.Title = "Northwind";

@@ -34,10 +34,10 @@
                 </webfamily-menu>
 
             </div>
-         
+
         </div>
 
-      
+
         <div :class="menuSize=='min'?'header_min':'header_max'">
             <keep-alive>
                 <component :is="headerModel"></component>
@@ -60,6 +60,10 @@
             <component :is="loginModel"></component>
         </el-dialog>
         <component v-if="footerModel" :is="footerModel"></component>
+
+        <component v-if="leftModel" :is="leftModel"></component>
+
+        <component v-if="rightModel" :is="rightModel"></component>
     </div>
     <script src="/beetlex/js/webfamily.js"></script>
 </body>

@@ -42,7 +42,8 @@ namespace BeetleX.Samples.WebFamily.WPF_VUE
                 o.WriteLog = true;
                 o.LogToConsole = true;
             })
-            .Initialize((http,vue,rec) =>
+                .UseElement(PageStyle.Element)
+            .Initialize((http, vue, rec) =>
             {
                 //注册程序集中所有控制器
                 //s.Register(typeof(MainWindow).Assembly);
