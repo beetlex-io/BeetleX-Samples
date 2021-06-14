@@ -1,0 +1,75 @@
+﻿{
+    "Port": 80,
+    "ImportElementUI": true,
+    "Page": "ElementDashboard",
+    "Title": "VuejsApp 数据统计示例",
+    "LogoImg": "/images/logo.png",
+    "HeaderModel": "webfamily-heade",
+    "TabsEnabled": true,
+    "HomeModel": "webfamily-home",
+    "HomeName": "主页",
+    "HomeEnabled": true,
+    "Menus": [
+      {
+        "ID": "home",
+        "Name": "主页",
+        "Img": "fas fa-home",
+        "Model": "webfamily-home"
+      },
+      {
+        "ID": "line",
+        "Name": "折线图",
+        "Img": "fas fa-chart-line",
+        "Childs": [
+          {
+            "ID": "line-simple",
+            "Name": "基础线图",
+            "Model": "line-simple"
+          },
+          {
+            "ID": "line-stack",
+            "Name": "折线图堆叠",
+            "Model": "line-stack"
+          }
+        ]
+      },
+      {
+        "ID": "pie",
+        "Name": "饼图",
+        "Img": "fas fa-chart-pie",
+        "Childs": [
+          {
+            "ID": "pie-simple",
+            "Name": "基础饼图",
+            "Model": "pie-simple"
+          },
+          {
+            "ID": "pie-roseType",
+            "Name": "南丁格尔玫瑰图",
+            "Model": "pie-roseType"
+          }
+        ]
+      },
+      {
+        "ID": "bar",
+        "Name": "柱状图",
+        "Img": "fas fa-chart-bar",
+        "Childs": [
+          {
+            "ID": "bar-simple",
+            "Name": "基础柱状图",
+            "Model": "bar-simple"
+          },
+          {
+            "ID": "bar-label-rotation",
+            "Name": "柱状图标签旋转",
+            "Model": "bar-label-rotation"
+          }
+        ]
+      }
+    ],
+    "CSS": [],
+    "JS": [
+      "echarts.js"
+    ]
+  }

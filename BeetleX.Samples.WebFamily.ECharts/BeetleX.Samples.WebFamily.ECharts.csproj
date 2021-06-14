@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="views\js\echarts.js" />
+    <None Remove="views\vue\bar-label-rotation.vue" />
+    <None Remove="views\vue\bar-simple.vue" />
+    <None Remove="views\vue\custom-header.vue" />
+    <None Remove="views\vue\hello.vue" />
+    <None Remove="views\vue\line-simple.vue" />
+    <None Remove="views\vue\line-stack.vue" />
+    <None Remove="views\vue\pie-roseType.vue" />
+    <None Remove="views\vue\pie-simple.vue" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="views\js\echarts.js" />
+    <EmbeddedResource Include="views\vue\bar-label-rotation.vue" />
+    <EmbeddedResource Include="views\vue\bar-simple.vue" />
+    <EmbeddedResource Include="views\vue\custom-header.vue" />
+    <EmbeddedResource Include="views\vue\hello.vue" />
+    <EmbeddedResource Include="views\vue\line-simple.vue" />
+    <EmbeddedResource Include="views\vue\line-stack.vue" />
+    <EmbeddedResource Include="views\vue\pie-roseType.vue" />
+    <EmbeddedResource Include="views\vue\pie-simple.vue" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BeetleX.WebFamily" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="webapp.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
