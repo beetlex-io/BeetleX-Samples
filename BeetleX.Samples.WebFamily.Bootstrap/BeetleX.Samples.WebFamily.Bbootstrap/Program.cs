@@ -12,7 +12,7 @@ namespace BeetleX.Samples.WebFamily.Bbootstrap
             WebHost.Title = "beetlex & bootstrap!";
             WebHost.LogoImg = "/images/icons-hero.png";
             WebHost.HeaderModel = "custom-header";
-            WebHost.MustLogin = true;
+            WebHost.Login = true;
             WebHost.GetMenus = (usr, role, http) =>
             {
                 List<Menu> result = new List<Menu>();
@@ -77,6 +77,7 @@ namespace BeetleX.Samples.WebFamily.Bbootstrap
                 sub.Model = "bar-label-rotation";
                 item.Childs.Add(sub);
                 result.Add(item);
+                var code = Newtonsoft.Json.JsonConvert.SerializeObject(result);
                 return Task.FromResult(result);
             };
             WebHost host = new WebHost();

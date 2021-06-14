@@ -68,7 +68,7 @@ namespace BeetleX.Samples.WebFamily.AdminThemeWPF
                 };
                 WebHost.Title = "Northwind";
                 WebHost.HeaderModel = "myheader";
-                WebHost.MustLogin = true;
+                WebHost.Login = true;
                 WebHost.HomeModel = "home";
 
                 WebHost.GetMenus = (user, role, context) =>
