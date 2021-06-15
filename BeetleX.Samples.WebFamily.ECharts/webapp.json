@@ -3,7 +3,6 @@
     "ImportElementUI": true,
     "Page": "ElementDashboard",
     "Title": "VuejsApp 数据统计示例",
-    "LogoImg": "/images/logo.png",
     "HeaderModel": "webfamily-heade",
     "TabsEnabled": true,
     "HomeModel": "webfamily-home",
