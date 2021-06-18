@@ -14,10 +14,10 @@
             onCommand(e){
                 console.log('employees',e)
                 if (e.field == 'Name') {
-                    this.$openWindow('(雇员)' + e.data.Name, '(雇员)' + e.data.Name,'employeeinfo',  e.data);
+                    this.$openWindow('(雇员)' + e.data.Name, '(雇员)' + e.data.Name, 'employeeinfo', e.data,'fas fa-users');
                 }
                 else {
-                    this.$openWindow('(雇员)' + e.data.FirstName + ' ' + e.data.LastName + '/订单', '(雇员)' + e.data.FirstName + ' ' + e.data.LastName + '/订单','orders',  { employee: e.data.EmployeeID });
+                    this.$openWindow('(雇员)' + e.data.FirstName + ' ' + e.data.LastName + '/订单', '(雇员)' + e.data.FirstName + ' ' + e.data.LastName + '/订单', 'orders', { employee: e.data.EmployeeID }, 'fas fa-shopping-cart');
                 }
             },
             onList(){

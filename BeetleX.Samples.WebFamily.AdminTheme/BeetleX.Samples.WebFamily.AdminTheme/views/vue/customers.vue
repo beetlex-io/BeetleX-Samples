@@ -38,10 +38,10 @@
             },
             onCommand(e){
                 if (e.field == 'CompanyName') {
-                    this.$openWindow('(客户)' + e.data.CompanyName, '(客户)' + e.data.CompanyName,'customerinfo',  e.data);
+                    this.$openWindow('(客户)' + e.data.CompanyName, '(客户)' + e.data.CompanyName, 'customerinfo', e.data,'fas fa-hospital-user');
                 }
                 else {
-                    this.$openWindow(e.data.CompanyName + '/订单', '(客户)' + e.data.CompanyName + '/订单', 'orders', { customer: e.data.CustomerID });
+                    this.$openWindow(e.data.CompanyName + '/订单', '(客户)' + e.data.CompanyName + '/订单', 'orders', { customer: e.data.CustomerID },'fas fa-shopping-cart');
                 }
             },
         },

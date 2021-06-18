@@ -45,7 +45,7 @@
             },
             onCommand(e){
                 console.log("products cmd", e);
-                this.$openWindow('(产品)' + e.data.ProductName + '/订单', '(产品)' + e.data.ProductName + '/订单','orders', { product: e.data.ProductID });
+                this.$openWindow('(产品)' + e.data.ProductName + '/订单', '(产品)' + e.data.ProductName + '/订单', 'orders', { product: e.data.ProductID },'fas fa-shopping-cart');
             },
             onChange(e){
                 this.$confirmMsg('是否要保存' + e.data.ProductName + "?", () => {
