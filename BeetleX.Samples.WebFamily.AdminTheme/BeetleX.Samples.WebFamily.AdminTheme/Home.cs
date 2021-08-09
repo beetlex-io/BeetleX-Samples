@@ -148,9 +148,9 @@ inner join Products p on p.ProductID = o.ProductID order by o.OrderID asc";
             return result;
         }
 
-        public object Orders(EFCoreDB<NorthwindContext> db, int index, int product, int employee, string customer, string jwt_user, string jwt_role)
+        public object Orders(EFCoreDB<NorthwindContext> db, int index, int product, int employee, string customer, string jwt_name, string jwt_role)
         {
-            Console.WriteLine($"jwt_info:{jwt_user}/{jwt_role}");
+            Console.WriteLine($"jwt_info:{jwt_name}/{jwt_role}");
             SQL sql = @"select orders.*,(employees.FirstName || ' ' || employees.LastName) Employee,
                         customers.CompanyName Customer from orders inner join employees
                         on orders.EmployeeID = employees.EmployeeID inner
