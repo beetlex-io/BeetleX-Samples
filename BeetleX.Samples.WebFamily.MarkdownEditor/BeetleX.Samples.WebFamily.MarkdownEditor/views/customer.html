@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Beetlex WebFamily</title>
+    <link href="/css/beetlex-v1.css" rel="stylesheet" />
+    <script src="/js/beetlex-v1.js"></script>
+</head>
+<body>
+    <div id="app">
+        <webfamily-md v-model="content" height="600px"></webfamily-md>
+        <el-divider content-position="left">Viewer</el-divider>
+        <webfamily-mdview :value="content" ></webfamily-mdview>
+    </div>
+    <script>
+        var page = {}
+        Vue.prototype.$getID = function () {
+            page.controlid = page.controlid + 1;
+            return page.controlid;
+        };
+        page = new Vue({
+            el: '#app',
+            data: {
+                content: '',
+                controlid: 1
+            },
+            methods: {
+
+            }
+        });
+
+    </script>
+</body>
+</html>
