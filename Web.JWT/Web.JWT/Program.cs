@@ -18,14 +18,13 @@ namespace Web.JWT
                     services.UseBeetlexHttp(o =>
                     {
                         o.LogToConsole = true;
-                        o.ManageApiEnabled = false;
+                        o.LogLevel = BeetleX.EventArgs.LogType.Warring;
                         o.Port = 80;
                         o.SetDebug();
-                        o.LogLevel = BeetleX.EventArgs.LogType.Warring;
                     },
-                    (server) =>
+                    (http) =>
                     {
-                        server.UseJWT((o, e) =>
+                        http.UseJWT((o, e) =>
                         {
                             var token = e.HttpContext.Data["token"];
                             if (token != null)
@@ -41,7 +40,6 @@ namespace Web.JWT
                             }
                         });
                     },
-
                     typeof(Program).Assembly);
                 });
             builder.Build().Run();
