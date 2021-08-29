@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="css/index.css" rel="stylesheet" />
+    <script src="js/vue.js"></script>
+    <script src="js/element.js"></script>
+    <script src="js/axios.js"></script>
+    <script src="js/beetlex4axios.js"></script>
+    <script src="js/FileLoader.js"></script>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+            font-size: 9pt;
+        }
+
+        #wecaht {
+            position: fixed;
+            right: 10px;
+            height: 200px;
+            top: auto;
+            bottom: auto;
+            text-align: center;
+            z-index: 300;
+        }
+
+        #app {
+            width: 1024px;
+            margin: auto;
+        }
+
+        #content {
+            padding-top: 60px;
+        }
+
+        #header {
+            height: 50px;
+            background: #fff;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            z-index: 200;
+            box-shadow: 1px 2px 10px #e6e6e6;
+        }
+
+        .upload-item {
+            padding: 2px;
+            margin: 8px 2px;
+            background-color: #f2f2f2;
+            box-shadow: 1px 1px 4px rgba(128, 128, 128, 0.26);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="wecaht">
+            <img src="qrcode.jpg" />
+            <br />
+            (关注公众号)
+        </div>
+        <div id="header">
+            <h1 style="color:#808080;margin-top:10px;padding-left:10px;">BeetleX</h1>
+        </div>
+        <div id="content">
+            <el-form :inline="true" size="mini" class="demo-form-inline">
+                <el-form-item label="公司名称">
+                    <el-input v-model="customers.data.name" placeholder="公司名称"></el-input>
+                </el-form-item>
+                <el-form-item label="所在国家">
+                    <el-select placeholder="所在国家" v-model="customers.data.country">
+                        <el-option label="无" value=""></el-option>
+                        <el-option v-for="item in country.result" :label="item" :value="item"></el-option>
+
+                    </el-select>
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="primary" @click="customers.get()">查询</el-button>
+                </el-form-item>
+            </el-form>
+
+            <el-table :data="customers.result"
+                      style="width: 100%" size="mini">
+                <el-table-column label="操作">
+                    <template slot-scope="scope">
+                        <el-button size="mini"
+                                   type="danger"
+                                   @click="onDelete(scope.row)">删除</el-button>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="CompanyName"
+                                 label="CompanyName"
+                                 width="180">
+                </el-table-column>
+                <el-table-column prop="ContactName"
+                                 label="ContactName"
+                                 width="180">
+                </el-table-column>
+                <el-table-column prop="ContactTitle"
+                                 label="ContactTitle">
+                </el-table-column>
+                <el-table-column prop="Address"
+                                 label="Address">
+                </el-table-column>
+                <el-table-column prop="City"
+                                 label="City">
+                </el-table-column>
+                <el-table-column prop="Region"
+                                 label="Region">
+                </el-table-column>
+                <el-table-column prop="Country"
+                                 label="Country">
+                </el-table-column>
+            </el-table>
+        </div>
+    </div>
+    <script>
+        var page = new Vue({
+            el: '#app',
+            data: {
+                customers: new beetlexAction('/Customers', { name: '', country: '' }, []),
+                items: [],
+                country: new beetlexAction('/CustomerCountry', null, []),
+                delCustomer: new beetlexAction('/DeleteCustomer')
+            },
+            methods: {
+                onDelete(e) {
+                    console.log(e);
+                    this.$confirmMsg('是否要删除客户信息?', () => {
+                        this.delCustomer.asyncget({ customer: e.CustomerID }).then(r => {
+                            this.customers.get();
+                        });
+                    });
+                },
+                onSelectFile(e) {
+
+                },
+            },
+            mounted() {
+                this.country.get();
+                this.customers.get();
+            },
+        });
+        Vue.prototype.$confirmMsg = function (msg, callback, cancel) {
+            this.$confirm(msg, '疑问', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => { callback(); }).catch(() => {
+                if (cancel)
+                    cancel();
+            });
+        };
+    </script>
+</body>
+</html>
