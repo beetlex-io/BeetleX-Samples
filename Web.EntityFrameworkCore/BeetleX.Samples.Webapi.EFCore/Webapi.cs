@@ -25,8 +25,8 @@ namespace BeetleX.Samples.Webapi.EFCore
         [Transaction]
         public void DeleteCustomer(string customer, EFCoreDB<NorthwindContext> db)
         {
-            db.DBContext.Orders.Delete(c => c.CustomerID == customer);
-            db.DBContext.Customers.Delete(c => c.CustomerID == customer);
+            db.DBContext.Orders.Where(o => o.CustomerID == customer).Delete();
+            db.DBContext.Customers.Where(c => c.CustomerID == customer).Delete();
         }
 
         public DBValueList<string> CustomerCountry(EFCoreDB<NorthwindContext> db)
