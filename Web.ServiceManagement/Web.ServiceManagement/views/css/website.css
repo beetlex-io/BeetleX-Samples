@@ -1,0 +1,8 @@
+﻿body
+{
+}
+.el-dialog__header {
+    text-align: left;
+    padding: 5px 10px;
+    background-color: #1e3f56;
+}
