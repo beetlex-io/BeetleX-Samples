@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="views\css\website.css" />
+    <None Remove="views\index.html" />
+    <None Remove="views\qrcode.jpg" />
+    <None Remove="views\vue\upload.vue" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="views\css\website.css" />
+    <EmbeddedResource Include="views\index.html" />
+    <EmbeddedResource Include="views\qrcode.jpg" />
+    <EmbeddedResource Include="views\vue\upload.vue" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BeetleX.WebFamily" Version="2.6.6.206" />
+  </ItemGroup>
+
+</Project>
