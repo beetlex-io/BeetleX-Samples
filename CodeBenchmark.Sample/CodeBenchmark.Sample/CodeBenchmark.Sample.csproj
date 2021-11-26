@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BeetleX.CodeBenchmark" Version="2.0.5" />
+    <PackageReference Include="BeetleX.Http.Clients" Version="1.6.8" />
+  </ItemGroup>
+
+</Project>
