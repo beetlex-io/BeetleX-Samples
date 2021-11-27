@@ -11,8 +11,6 @@ namespace CodeBenchmark.Sample
             Benchmark benchmark = new Benchmark();
             benchmark.Register(typeof(Program).Assembly);
             benchmark.Start(80,true);
-            
-            Console.Read();
         }
     }
     [System.ComponentModel.Category("HTTP")]

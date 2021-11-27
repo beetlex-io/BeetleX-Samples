@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BeetleX.CodeBenchmark" Version="2.0.5" />
+    <PackageReference Include="BeetleX.CodeBenchmark" Version="2.0.8" />
     <PackageReference Include="BeetleX.Http.Clients" Version="1.6.8" />
   </ItemGroup>
 
