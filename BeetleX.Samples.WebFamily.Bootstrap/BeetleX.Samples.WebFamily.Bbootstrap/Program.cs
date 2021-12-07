@@ -81,7 +81,7 @@ namespace BeetleX.Samples.WebFamily.Bbootstrap
                 return Task.FromResult(result);
             };
             WebHost host = new WebHost();
-            host.RegisterController<Program>()
+            host.RegisterComponent<Program>()
             .Setting(o =>
             {
                 o.SetDebug();

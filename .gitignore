@@ -285,3 +285,16 @@ Web.ServiceManagement/.vs/
 Web.ServiceManagement/Web.ServiceManagement/Properties/
 Web.BigfileUpload/Web.BigfileUpload/bin/
 Web.BigfileUpload/Web.BigfileUpload/obj/
+CodeBenchmark.Sample/CodeBenchmark.Sample/bin/
+CodeBenchmark.Sample/CodeBenchmark.Sample/obj/
+CodeBenchmark.Sample/.vs/
+BeetleX.Samples.WebFamily.AdminTheme/BeetleX.Samples.WebFamily.AdminTheme/BeetleX.Samples.WebFamily.AdminTheme.csproj.user
+*.user
+*.v2
+BeetleX.Samples.WebFamily.ECharts/.vscode/
+BeetleX.Samples.WebFamily.SBAdminUI/.vs/
+BeetleX.Samples.WebFamily.SBAdminUI/obj/
+Web.CustomParameterBinder/.vs/
+Web.CustomParameterBinder/Web.CustomParameterBinder/obj/
+*.suo
+BeetleX.Samples.WebFamily.ECharts/logs/

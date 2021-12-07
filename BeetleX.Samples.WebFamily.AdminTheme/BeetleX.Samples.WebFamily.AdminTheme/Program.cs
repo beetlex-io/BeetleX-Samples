@@ -13,7 +13,7 @@ namespace BeetleX.Samples.WebFamily.AdminTheme
         static void Main(string[] args)
         {
             WebHost host = new WebHost();
-            host.RegisterController<Program>()
+            host.RegisterComponent<Program>()
             .Setting(o =>
             {
                 o.SetDebug();
