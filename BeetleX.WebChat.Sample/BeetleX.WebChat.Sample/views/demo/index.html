@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/vue.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <div style="position:fixed;top:10px;left:10px;">
+            <el-form :inline="true" size="mini">
+                <el-form-item label="NickName">
+                    <el-input v-model="nickName" placeholder="NickName"></el-input>
+                </el-form-item>
+
+                <el-form-item>
+                    <el-button type="primary" @click="signin">signin</el-button>
+                </el-form-item>
+            </el-form>
+        </div>
+
+        <el-card class="box-card" style="padding:10px;position:fixed;bottom:10px;top:50px;left:10px;width:200px;">
+            <div slot="header" class="clearfix">
+                <span>Rooms</span>
+
+            </div>
+
+
+            <div v-for="item in regions" style="padding:5px;">
+                <el-button @click="selectRegion(item)" style="width:100%;">{{item.Name}}</el-button>
+            </div>
+        </el-card>
+
+
+        <el-card class="box-card" style="padding:10px;position:fixed;bottom:10px;top:50px;left:240px;right:10px;">
+            <div slot="header" class="clearfix">
+                <span>Room:{{name}}</span>
+
+            </div>
+            <div v-for="msg in messages" style="padding:10px;margin:10px;box-shadow:-1px 0px 4px rgb(128 128 128 / 0.35);border-radius:4px;">
+                <span style="background-color:rgb(128 128 128 / 0.35);color:#fff;padding:2px 4px;border-radius:4px;margin-right:2px;">{{msg.user}}</span><span>{{msg.message}}</span>
+            </div>
+        </el-card>
+        <div style="position:fixed;bottom:20px;top:130px;right:20px;width:200px;background-color:#fff;border-radius:4px;padding:10px;box-shadow:-1px 0px 10px rgb(128 128 128 / 0.35)">
+            <p><b>Users</b></p>
+            <div v-for="item in regionUsers"><span>{{item.Name}}</span></div>
+        </div>
+        <div style="position:fixed;bottom:10px;left:260px;">
+            <el-form :inline="true" size="mini">
+                <el-form-item label="">
+                    <el-input v-model="talkMsg" style="width:400px;"></el-input>
+                </el-form-item>
+
+                <el-form-item>
+                    <el-button type="primary" @click="talk">Send</el-button>
+                </el-form-item>
+            </el-form>
+        </div>
+
+    </div>
+    <script>
+        var page = new Vue({
+            el: '#app',
+            data: {
+                websockt: null,
+                regions: [],
+                nickName: '',
+                selectRegionItem: {},
+                regionUsers: [],
+                talkMsg: '',
+                name: '',
+                messages: [],
+            },
+            methods: {
+                talk() {
+                    if (this.talkMsg) {
+                        this.send({ command: 'send-message', data: this.talkMsg });
+                        this.talkMsg = null;
+                    }
+                },
+                selectRegion(e) {
+                    this.selectRegionItem = e;
+                    this.messages = [];
+                    this.name = e.Name;
+                    this.send({ command: 'region-signin', data: e.ID });
+
+                },
+                signin() {
+                    if (this.nickName) {
+                        this.send({ command: 'signin', data: this.nickName })
+                        this.name = "";
+                        this.selectRegionItem = null;
+                    }
+                },
+                onReceive(e) {
+                    var data = JSON.parse(e.data);
+                    console.log(data);
+                    if (data.command == 'region-list') {
+                        this.regions = data.data;
+                    }
+                    else if (data.command == "region-users") {
+                        this.regionUsers = data.data;
+                    }
+                    else if (data.command == "region-signin") {
+                        this.messages.push({ type: 'signin', message: " signin...", user: data.data.Name });
+                    }
+                    else if (data.command == "region-signout") {
+                        this.messages.push({ type: 'signout', message: " signout...", user: data.data.Name });
+                    }
+                    else if (data.command == "send-message") {
+                        this.messages.push({ type: 'message', message: data.data.Message, user: data.data.Name });
+                    }
+                },
+                send(msg) {
+                    this.websockt.send(JSON.stringify(msg));
+                },
+            },
+            mounted() {
+                this.websockt = new WebSocket('ws://localhost:80');
+                this.websockt.onmessage = this.onReceive;
+                this.websockt.onopen = () => {
+
+                }
+
+            }
+        });
+    </script>
+</body>
+</html>

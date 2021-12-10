@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="views\demo\index.html" />
+    <None Remove="views\demo\js\vue.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="views\demo\index.html" />
+    <EmbeddedResource Include="views\demo\js\vue.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BeetleX.WebChat" Version="0.8.7" />
+  </ItemGroup>
+
+</Project>
