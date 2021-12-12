@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BeetleX.WebChat" Version="0.8.7" />
+    <PackageReference Include="BeetleX.WebChat" Version="0.8.8.214" />
   </ItemGroup>
 
 </Project>

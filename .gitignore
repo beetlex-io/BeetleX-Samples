@@ -298,3 +298,6 @@ Web.CustomParameterBinder/.vs/
 Web.CustomParameterBinder/Web.CustomParameterBinder/obj/
 *.suo
 BeetleX.Samples.WebFamily.ECharts/logs/
+BeetleX.WebChat.Sample/BeetleX.WebChat.Sample/bin/
+BeetleX.WebChat.Sample/BeetleX.WebChat.Sample/obj/
+BeetleX.WebChat.Sample/.vs/
