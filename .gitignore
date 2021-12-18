@@ -301,3 +301,8 @@ BeetleX.Samples.WebFamily.ECharts/logs/
 BeetleX.WebChat.Sample/BeetleX.WebChat.Sample/bin/
 BeetleX.WebChat.Sample/BeetleX.WebChat.Sample/obj/
 BeetleX.WebChat.Sample/.vs/
+BeetleX.Websocket.Protobuf/BeetleX.Websocket.Protobuf/bin/
+BeetleX.WebFamily.Base/BeetleX.WebFamily.Base/bin/
+BeetleX.WebFamily.Base/BeetleX.WebFamily.Base/obj/
+BeetleX.WebFamily.Base/NorthwindEFCore/bin/
+BeetleX.WebFamily.Base/NorthwindEFCore/obj/

@@ -89,7 +89,7 @@
     </el-pagination>
 </div>
 <script>
-    {
+    export default{
         props: ["token"],
             data(){
             return {

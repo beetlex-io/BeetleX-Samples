@@ -44,7 +44,7 @@
     </el-row>
 </div>
 <script>
-    {
+    export default{
         data(){
             return {
                 productStats: null,

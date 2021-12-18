@@ -13,7 +13,7 @@
     </el-pagination>
 </div>
 <script>
-    {
+    export default{
         data(){
             return {
                 list: new beetlexAction('/Customers', { name: '', country: '', index: 0 }, { Count: 0, Index: 0, Pages: 0, Size: 0, Items: [] }),

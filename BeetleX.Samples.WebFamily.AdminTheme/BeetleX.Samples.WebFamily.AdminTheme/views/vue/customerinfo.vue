@@ -4,7 +4,7 @@
     </auto-form>
 </div>
 <script>
-    {
+    export default{
         props: ['token', 'winid'],
             data(){
             return {

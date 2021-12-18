@@ -8,7 +8,7 @@
     </el-card>
 </div>
 <script>
-    {
+    export default {
         data(){
             return {
                 list: new beetlexAction('Categories', null, [])

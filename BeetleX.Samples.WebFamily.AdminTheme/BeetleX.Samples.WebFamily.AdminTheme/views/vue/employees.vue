@@ -4,7 +4,7 @@
     </auto-grid>
 </div>
 <script>
-    {
+    export default{
         data(){
             return {
                 list: new beetlexAction('/Employees', null, []),
