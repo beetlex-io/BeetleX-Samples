@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Northwind.sqlite" />
+    <None Remove="views\vue\customers.vue" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Northwind.sqlite">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="views\vue\customers.vue" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BeetleX.WebFamily" Version="2.7.6.214" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NorthwindEFCore\NorthwindEFCoreSqlite.csproj" />
+  </ItemGroup>
+
+</Project>
