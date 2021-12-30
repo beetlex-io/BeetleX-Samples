@@ -36,6 +36,6 @@
                 edit.setValue(this.token);
             }
             edit.bindForm(this.$refs.editor);
-        },
+        }
     }
 </script>

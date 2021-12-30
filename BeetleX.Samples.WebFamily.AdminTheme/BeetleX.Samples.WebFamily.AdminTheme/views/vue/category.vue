@@ -21,6 +21,6 @@
         },
         mounted(){
             this.list.get();
-        },
+        }
     }
 </script>

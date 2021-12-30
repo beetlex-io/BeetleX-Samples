@@ -40,6 +40,6 @@
             grid.addText("Address", "Address");
             grid.bindGrid(this.$refs.dataList);
             this.onList();
-        },
+        }
     }
 </script>

@@ -67,7 +67,7 @@
             },
             onOrderStats()
             {
-                var action = new beetlexAction('OrderStats').asyncget().then(r => {
+                var action = new beetlexAction('/OrderStats').asyncget().then(r => {
                     option = {
                         tooltip: {
                             trigger: 'axis',
@@ -119,7 +119,7 @@
                 });
             },
             onEmployeeStats(){
-                var action = new beetlexAction('EmployeeStats').asyncget().then(r => {
+                var action = new beetlexAction('/EmployeeStats').asyncget().then(r => {
                     option = {
                         tooltip: {
                             trigger: 'item',
@@ -151,7 +151,7 @@
                 });
             },
             onCustomerStats(){
-                var action = new beetlexAction('CustomerStats').asyncget().then(r => {
+                var action = new beetlexAction('/CustomerStats').asyncget().then(r => {
                     option = {
                         tooltip: {
                             trigger: 'item',
@@ -183,7 +183,7 @@
                 });
             },
             onProductStats(){
-                var action = new beetlexAction('ProductStats').asyncget().then(r => {
+                var action = new beetlexAction('/ProductStats').asyncget().then(r => {
                     option = {
                         tooltip: {
                             trigger: 'item',
@@ -232,7 +232,7 @@
             this.onEmployeeStats();
             this.onCustomerStats();
             this.onProductStats();
-        },
+        }
 
     }
 </script>

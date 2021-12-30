@@ -135,6 +135,6 @@
             f.icon = "el-icon-search";
             search.bindForm(this.$refs.search);
             this.onList();
-        },
+        }
     }
 </script>
