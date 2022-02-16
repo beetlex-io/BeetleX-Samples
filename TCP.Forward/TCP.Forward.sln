@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCP.Forward", "TCP.Forward\TCP.Forward.csproj", "{AEEE91F2-3F43-4226-8865-908745966478}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEEE91F2-3F43-4226-8865-908745966478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEEE91F2-3F43-4226-8865-908745966478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEEE91F2-3F43-4226-8865-908745966478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEEE91F2-3F43-4226-8865-908745966478}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CFFF2BAE-F047-4683-8F71-8DDF046939B1}
+	EndGlobalSection
+EndGlobal

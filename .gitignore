@@ -306,3 +306,9 @@ BeetleX.WebFamily.Base/BeetleX.WebFamily.Base/bin/
 BeetleX.WebFamily.Base/BeetleX.WebFamily.Base/obj/
 BeetleX.WebFamily.Base/NorthwindEFCore/bin/
 BeetleX.WebFamily.Base/NorthwindEFCore/obj/
+UnixSocket.Base/UnixSocket.Base/bin/
+UnixSocket.Base/UnixSocket.Base/obj/
+UnixSocket.Http/UnixSocket.Http/bin/
+UnixSocket.Http/UnixSocket.Http/obj/
+UnixSocket.Base/UnixSocket.Base/Properties/
+UnixSocket.Http/UnixSocket.Http/Properties/
