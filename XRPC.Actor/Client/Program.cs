@@ -9,13 +9,13 @@ namespace Client
     class Program
     {
         static XRPCClient client;
-        static IAmount henry, ken, none;
+        static IProductStorage henry, ken;
         static void Main(string[] args)
         {
             client = new XRPCClient("localhost", 9090);
             client.Options.ParameterFormater = new JsonPacket();//default messagepack
-            henry = client.Create<IAmount>("henry");
-            ken = client.Create<IAmount>("ken");
+            henry = client.Create<IProductStorage>("henry");
+            ken = client.Create<IProductStorage>("ken");
             Test();
             Console.Read();
         }
@@ -36,8 +36,8 @@ namespace Client
                 {
                     for (int k = 0; k < 100; k++)
                     {
-                        await henry.Income(10);
-                        await ken.Income(10);
+                        await henry.Put(10);
+                        await ken.Put(10);
 
                     }
                 });
@@ -56,8 +56,8 @@ namespace Client
                 {
                     for (int k = 0; k < 100; k++)
                     {
-                       await henry.Pay(10);
-                        await ken.Pay(10);
+                        await henry.Out(10);
+                        await ken.Out(10);
 
                     }
                 });
@@ -67,10 +67,10 @@ namespace Client
         }
     }
 
-    public interface IAmount
+    public interface IProductStorage
     {
-        Task Income(int value);
-        Task Pay(int value);
+        Task Put(int quantity);
+        Task Out(int quantity);
         Task<int> GetValue();
     }
 }

@@ -26,14 +26,14 @@ namespace Server
         }
     }
 
-    public interface IAmount
+    public interface IProductStorage
     {
-        Task Income(int value);
-        Task Pay(int value);
+        Task Put(int quantity);
+        Task Out(int quantity);
         Task<int> GetValue();
     }
-    [Service(typeof(IAmount))]
-    public class AmountImpl : IAmount
+    [Service(typeof(IProductStorage))]
+    public class ProductStorageImpl : IProductStorage
     {
 
         private int mAmount;
@@ -43,13 +43,13 @@ namespace Server
             return mAmount.ToTask();
         }
 
-        public Task Income(int value)
+        public Task Out(int value)
         {
             mAmount -= value;
             return Task.CompletedTask;
         }
 
-        public Task Pay(int value)
+        public Task Put(int value)
         {
             mAmount += value;
             return Task.CompletedTask;
