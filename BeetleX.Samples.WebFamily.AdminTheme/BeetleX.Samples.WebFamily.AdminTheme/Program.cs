@@ -17,7 +17,7 @@ namespace BeetleX.Samples.WebFamily.AdminTheme
             .Setting(o =>
             {
                 o.SetDebug();
-                o.Port = 80;
+                o.Port = 8081;
                 o.LogLevel = EventArgs.LogType.Error;
                 o.LogToConsole = true;
             })

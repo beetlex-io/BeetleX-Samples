@@ -11,6 +11,7 @@ namespace BeetleX.WebFamily.Base
         static void Main(string[] args)
         {
             WebHost host = new WebHost();
+            WebHost.HomeName = "主页";
             WebHost.GetMenus = (user, role, context) =>
             {
                 List<Menu> menus = new List<Menu>();
