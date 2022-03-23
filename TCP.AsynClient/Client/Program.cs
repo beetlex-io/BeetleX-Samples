@@ -23,10 +23,6 @@ namespace Client
                 Console.Write("Enter Name:");
                 BytesHandler line = Console.ReadLine() + "\r\n";
                 client.Send(line);
-                if(!client.IsConnected)
-                {
-                    Console.WriteLine(client.LastError.Message);
-                }
             }
 
         }

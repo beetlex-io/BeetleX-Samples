@@ -22,7 +22,7 @@ namespace Client
             while (true)
             {
                 var name = Console.ReadLine();
-                client.Send(name);
+                await client.Send(name);
                 var result = await client.Receive();
                 Console.WriteLine(result);
             }

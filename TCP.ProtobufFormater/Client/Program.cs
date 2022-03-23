@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using BeetleX;
 using BeetleX.Buffers;
 using BeetleX.Clients;
@@ -7,9 +8,9 @@ namespace Client
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            TcpClient client = SocketFactory.CreateClient<TcpClient, Messages.ProtobufClientPacket>("127.0.0.1", 9090);
+            var client = new AwaiterClient("127.0.0.1", 9090, new Messages.ProtobufClientPacket());
             while (true)
             {
                 Messages.Register register = new Messages.Register();
@@ -21,8 +22,8 @@ namespace Client
                 register.City = Console.ReadLine();
                 Console.Write("Enter Password:");
                 register.PassWord = Console.ReadLine();
-                client.SendMessage(register);
-                var result = client.ReceiveMessage<Messages.Register>();
+                await client.Send(register);
+                var result = await client.Receive<Messages.Register>();
                 Console.WriteLine($"{result.Name} {result.EMail} {result.City} {result.DateTime}");
             }
         }

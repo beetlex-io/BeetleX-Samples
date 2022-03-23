@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using BeetleX;
 using BeetleX.Buffers;
 using BeetleX.Clients;
@@ -7,16 +8,18 @@ namespace Client
 {
     class Program
     {
-        static void Main(string[] args)
+        static Task Main(string[] args)
         {
-            TcpClient client = SocketFactory.CreateClient<TcpClient, StringPacket>("127.0.0.1", 9090);
+            var client = SocketFactory.CreateClient<AsyncTcpClient, StringPacket>("127.0.0.1", 9090);
+            client.PacketReceive = (o, d) => {
+                Console.WriteLine($"{DateTime.Now} {d}");
+            };
             while (true)
             {
                 Console.Write("Enter Name:");
                 var line = Console.ReadLine();
-                client.SendMessage(line);
-                var result = client.ReceiveMessage<string>();
-                Console.WriteLine($"{DateTime.Now} {result}");
+                client.Send(line);
+                
             }
         }
     }
