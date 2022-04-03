@@ -16,6 +16,49 @@ namespace Websocket.ProtobufPacket
             ProtobufFrameSerializer.BinaryDataFactory.RegisterComponent<T>();
             return server;
         }
+        public static HttpApiServer UseProtobufController(this HttpApiServer server, Action<WebSocketReceiveArgs> handler = null)
+        {
+            server.WebSocketReceive = async (o, e) =>
+            {
+                try
+                {
+                    var msg = e.Frame.Body;
+                    var action = ProtobufFrameSerializer.BinaryDataFactory.GetHandler(msg);
+                    if (action != null)
+                    {
+                        if (!action.IsVoid)
+                        {
+                            if (action.IsTaskResult)
+                            {
+
+                                Task task = (Task)action.Execute(e, msg);
+                                await task;
+                                if (action.HasTaskResultData)
+                                {
+                                    var result = action.GetTaskResult(task);
+                                    e.ResponseBinary(result);
+                                }
+                            }
+                            else
+                            {
+                                var result = action.Execute(e, msg);
+                                e.ResponseBinary(result);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        handler?.Invoke(e);
+                    }
+                }
+                catch (Exception e_)
+                {
+                    e.Request.Server.GetLog(BeetleX.EventArgs.LogType.Warring)
+                    ?.Log(BeetleX.EventArgs.LogType.Error, e.Request.Session, $"Websocket packet process error {e_.Message}");
+                }
+            };
+            return server;
+        }
     }
     public class ProtobufFrameSerializer : IDataFrameSerializer
     {

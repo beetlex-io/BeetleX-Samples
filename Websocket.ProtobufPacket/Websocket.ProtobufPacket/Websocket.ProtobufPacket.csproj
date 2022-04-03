@@ -5,6 +5,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;PROTOBUF_SERVER</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="BeetleX.FastHttpApi" Version="2.2.10.1802" />
     <PackageReference Include="BeetleX.FastHttpApi.Hosting" Version="1.5.8.2210" />

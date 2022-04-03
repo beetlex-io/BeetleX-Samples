@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BeetleX.FastHttpApi.WebSockets;
+using System;
+using System.Threading.Tasks;
 
 namespace Websocket.ProtobufPacket
 {
@@ -17,14 +19,19 @@ namespace Websocket.ProtobufPacket
             server.Completed(http =>
             {
                 http.RegisterProtobuf<User>();
-                http.WebSocketReceive = (o, e) =>
-                {
-                    var user = (User)e.Frame.Body;
-                    user.ResultTime = DateTime.Now;
-                    e.ResponseBinary(user);
-                };
+                http.UseProtobufController();
             });
             server.Run();
+        }
+    }
+
+    [MessageController]
+    public class Controller
+    {
+        public User Login(WebSocketReceiveArgs e, User user)
+        {
+            user.ResultTime = DateTime.Now;
+            return user;
         }
     }
 }

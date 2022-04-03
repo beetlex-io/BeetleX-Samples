@@ -5,6 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProtoBuf;
+using System.Reflection;
+#if PROTOBUF_SERVER
+using BeetleX.FastHttpApi.WebSockets;
+#endif
 
 namespace Websocket.ProtobufPacket
 {
@@ -21,6 +25,11 @@ namespace Websocket.ProtobufPacket
 
         public int ID { get; set; }
     }
+    [AttributeUsage(AttributeTargets.Class)]
+    public class MessageControllerAttribute : Attribute
+    {
+
+    }
 
     public class BinaryDataFactory
     {
@@ -28,6 +37,8 @@ namespace Websocket.ProtobufPacket
         private Dictionary<int, Type> mMessageTypes = new Dictionary<int, Type>();
 
         private Dictionary<Type, int> mMessageIDs = new Dictionary<Type, int>();
+
+        private Dictionary<Type, ActionHandler> mActions = new Dictionary<Type, ActionHandler>();
 
         public void RegisterComponent<T>()
         {
@@ -44,6 +55,21 @@ namespace Websocket.ProtobufPacket
                     mMessageTypes[bta[0].ID] = item;
                     mMessageIDs[item] = bta[0].ID;
                 }
+#if PROTOBUF_SERVER
+                var mca = item.GetCustomAttribute<MessageControllerAttribute>(false);
+                if (mca != null)
+                {
+                    var controller = Activator.CreateInstance(item);
+                    foreach (MethodInfo method in item.GetMethods(BindingFlags.Public | BindingFlags.Instance))
+                    {
+                        var parameters = method.GetParameters();
+                        if (parameters.Length == 2 && parameters[0].ParameterType == typeof(WebSocketReceiveArgs)) {
+                            ActionHandler handler = new ActionHandler(controller, method);
+                            mActions[parameters[1].ParameterType] = handler;
+                        }
+                    }
+                }
+#endif
             }
         }
 
@@ -97,6 +123,47 @@ namespace Websocket.ProtobufPacket
             if (!littleEndian)
                 value = BeetleX.Buffers.BitHelper.SwapInt32(value);
             return GetMessageType(value);
+        }
+        public ActionHandler GetHandler(object message)
+        {
+            mActions.TryGetValue(message.GetType(), out ActionHandler result);
+            return result;
+        }
+    }
+
+    public class ActionHandler
+    {
+        public ActionHandler(object controller, MethodInfo method)
+        {
+            Method = method;
+            Controller = controller;
+            IsVoid = method.ReturnType == typeof(void);
+            IsTaskResult = method.ReturnType.BaseType == typeof(Task);
+            if (IsTaskResult && method.ReturnType.IsGenericType)
+            {
+                HasTaskResultData = true;
+                mGetPropertyInfo = method.ReturnType.GetProperty("Result", BindingFlags.Public | BindingFlags.Instance);
+            }
+        }
+
+        private PropertyInfo mGetPropertyInfo;
+        public MethodInfo Method { get; private set; }
+
+        public bool IsTaskResult { get; set; }
+
+        public bool HasTaskResultData { get; set; }
+        public bool IsVoid { get; private set; }
+
+        public object Controller { get; private set; }
+
+        public object GetTaskResult(Task task)
+        {
+            return mGetPropertyInfo.GetValue(task);
+        }
+
+        public object Execute(params object[] data)
+        {
+            return Method.Invoke(Controller, data);
         }
     }
 }
