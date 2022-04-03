@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Websocket.MessagePackPacket\MessagePack.cs" Link="MessagePack.cs" />
+    <Compile Include="..\Websocket.MessagePackPacket\Messages.cs" Link="Messages.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BeetleX.Http.Clients" Version="2.2.2.1802" />
+    <PackageReference Include="MessagePack" Version="2.3.85" />
+    <PackageReference Include="MessagePackAnalyzer" Version="2.3.85" />
+  </ItemGroup>
+
+</Project>
