@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Websocket.Authorization", "Websocket.Authorization\Websocket.Authorization.csproj", "{82C75041-940D-4D98-830F-77CF48B2ED8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Websocket.Authorization.Client", "Websocket.Authorization.Client\Websocket.Authorization.Client.csproj", "{FEFC7805-15F9-4F91-922C-37DC787B0316}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82C75041-940D-4D98-830F-77CF48B2ED8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82C75041-940D-4D98-830F-77CF48B2ED8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82C75041-940D-4D98-830F-77CF48B2ED8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82C75041-940D-4D98-830F-77CF48B2ED8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEFC7805-15F9-4F91-922C-37DC787B0316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEFC7805-15F9-4F91-922C-37DC787B0316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEFC7805-15F9-4F91-922C-37DC787B0316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEFC7805-15F9-4F91-922C-37DC787B0316}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {791FBDC9-B4E0-4187-9E71-7D8468D3C40E}
+	EndGlobalSection
+EndGlobal
