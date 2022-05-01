@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="/js/beetlex-v1.js"></script>
+    <link href="/css/beetlex-v1.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="app">
+        <el-tabs v-model="activeName">
+            <el-tab-pane label="搜索文档" name="search">
+                <model-list-document @select="onSelect">
+
+                </model-list-document>
+            </el-tab-pane>
+            <el-tab-pane label="添加文档" name="edit">
+                <model-add-document :post="selectItem"></model-add-document>
+            </el-tab-pane>
+
+        </el-tabs>
+    </div>
+    <script>
+        var app = new Vue(
+            {
+                el: '#app', data: {
+                    activeName: 'search',
+                    selectItem:null,
+                },
+                methods: {
+                    onSelect(data) {
+                        console.log(data);
+                        this.selectItem = data;
+                        this.activeName = 'edit';
+                    }
+                },
+                mounted() {
+
+                }
+            }
+        );
+    </script>
+</body>
+</html>
