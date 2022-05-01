@@ -1,0 +1,65 @@
+﻿body {
+    padding: 0px;
+    margin: 0px;
+    font-size: 9pt;
+}
+
+#wecaht {
+    position: fixed;
+    right: 10px;
+    height: 200px;
+    top: auto;
+    bottom: auto;
+    text-align: center;
+    z-index: 300;
+}
+
+#app {
+    width: 1024px;
+    margin: auto;
+}
+
+#content {
+padding:5px;
+}
+
+#header {
+    height: 50px;
+    background: #fff;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 210;
+    box-shadow: 1px 2px 10px #e6e6e6;
+}
+
+#main {
+    background: #fff;
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 200;
+}
+
+#menus {
+    box-shadow: 1px 2px 10px #e6e6e6;
+    width: 200px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+}
+
+#content {
+    box-shadow: 1px 2px 10px #e6e6e6;
+    right: 10px;
+    position: absolute;
+    top: 10px;
+    left: 210px;
+    bottom: 10px;
+    background-color:ActiveBorder;
+    overflow-y:auto;
+}

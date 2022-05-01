@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindEFCoreSqlite", "NorthwindEFCoreSqlite.csproj", "{7108FCEB-8EB0-4363-B223-719494D76704}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7108FCEB-8EB0-4363-B223-719494D76704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7108FCEB-8EB0-4363-B223-719494D76704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7108FCEB-8EB0-4363-B223-719494D76704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7108FCEB-8EB0-4363-B223-719494D76704}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC901DA9-2AD9-4871-AEA2-0B59B648F8D9}
+	EndGlobalSection
+EndGlobal

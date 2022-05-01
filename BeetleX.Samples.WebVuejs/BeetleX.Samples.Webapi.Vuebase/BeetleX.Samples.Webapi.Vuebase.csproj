@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="views\css\fonts\element-icons.ttf" />
+    <None Remove="views\css\fonts\element-icons.woff" />
+    <None Remove="views\css\index.css" />
+    <None Remove="views\css\site.css" />
+    <None Remove="views\index.html" />
+    <None Remove="views\js\axios.js" />
+    <None Remove="views\js\beetlex4axios.js" />
+    <None Remove="views\js\element.js" />
+    <None Remove="views\js\vue.js" />
+    <None Remove="views\js\vueextends.js" />
+    <None Remove="views\qrcode.jpg" />
+    <None Remove="views\vue\page-header.vue" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="views\css\fonts\element-icons.ttf" />
+    <EmbeddedResource Include="views\css\fonts\element-icons.woff" />
+    <EmbeddedResource Include="views\css\index.css" />
+    <EmbeddedResource Include="views\css\site.css" />
+    <EmbeddedResource Include="views\index.html" />
+    <EmbeddedResource Include="views\js\axios.js" />
+    <EmbeddedResource Include="views\js\beetlex4axios.js" />
+    <EmbeddedResource Include="views\js\element.js" />
+    <EmbeddedResource Include="views\js\vue.js" />
+    <EmbeddedResource Include="views\js\vueextends.js" />
+    <EmbeddedResource Include="views\qrcode.jpg" />
+    <EmbeddedResource Include="views\vue\page-header.vue" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BeetleX.FastHttpApi" Version="2.2.11.1803" />
+    <PackageReference Include="BeetleX.FastHttpApi.EFCore.Extension" Version="0.8.4.2211" />
+    <PackageReference Include="BeetleX.FastHttpApi.Hosting" Version="1.5.9.2211" />
+    <PackageReference Include="BeetleX.FastHttpApi.VueExtend" Version="1.2.7.2211" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NorthwindEFCore\NorthwindEFCoreSqlite.csproj" />
+  </ItemGroup>
+
+</Project>
