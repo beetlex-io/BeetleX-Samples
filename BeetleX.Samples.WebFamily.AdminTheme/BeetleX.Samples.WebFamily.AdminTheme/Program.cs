@@ -23,7 +23,6 @@ namespace BeetleX.Samples.WebFamily.AdminTheme
             })
             .UseEFCore<NorthwindContext>()
             .UseJWT()
-            .UseFontawesome()
             .UseElement(PageStyle.ElementDashboard)
 
             .Initialize((http, vue, rec) =>
@@ -33,10 +32,10 @@ namespace BeetleX.Samples.WebFamily.AdminTheme
                 vue.Debug();
                 WebHost.LoginHandler = (user, pwd, context) =>
                 {
-                    var result = context.SetJwtToken(user, "user", 60 * 60);
-                    return Task.FromResult((object)result);
+                    LoginResult result = new LoginResult { Role = "admin", Success = true };
+                    return Task.FromResult(result);
                 };
-                WebHost.Title = "Northwind";
+                WebHost.Title = "Northwind示例";
                 WebHost.HeaderModel = "myheader";
                 WebHost.Login = true;
                 WebHost.HomeModel = "home";

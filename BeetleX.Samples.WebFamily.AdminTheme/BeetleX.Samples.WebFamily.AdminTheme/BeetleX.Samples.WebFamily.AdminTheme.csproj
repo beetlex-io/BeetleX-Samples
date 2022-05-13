@@ -53,7 +53,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BeetleX.WebFamily" Version="2.8.2.214" />
+    <PackageReference Include="BeetleX.WebFamily" Version="2.8.18.2214" />
   </ItemGroup>
 
   <ItemGroup>

@@ -18,7 +18,7 @@ namespace BeetleX.Samples.WebFamily.AdminTheme
         {
             SQL sql = @"select o.ProductID,d.OrderDate,(o.UnitPrice*o.Quantity) Amount,p.ProductName from  'Order Details' o inner join orders d on o.OrderID=d.OrderID
 inner join Products p on p.ProductID = o.ProductID order by o.OrderID asc";
-            DBObjectList<ExpandoObject> items = (db.DBContext, sql, new EFCore.Extension.Region(0, 10000));
+            SQL2ObjectList<ExpandoObject> items = (db.DBContext, sql, new EFCore.Extension.Region(0, 10000));
 
             var productOrderGroup = (from a in items.Cast<dynamic>()
                                      group a by new { a.ProductID, a.ProductName } into g
@@ -61,7 +61,7 @@ inner join Products p on p.ProductID = o.ProductID order by o.OrderID asc";
             return new { Months = yearMonth, Products = products, Items = stats };
         }
 
-        public DBObjectList<ExpandoObject> EmployeeStats(EFCoreDB<NorthwindContext> db)
+        public SQL2ObjectList<ExpandoObject> EmployeeStats(EFCoreDB<NorthwindContext> db)
         {
             SQL sql = @"select (e.FirstName || ' '|| e.LastName) name, sum((o.UnitPrice * o.Quantity)) value from  'Order Details' o inner join orders d on o.OrderID = d.OrderID
                     inner join Employees e on e.EmployeeID = d.EmployeeID
@@ -69,7 +69,7 @@ inner join Products p on p.ProductID = o.ProductID order by o.OrderID asc";
             return (db.DBContext, sql);
         }
 
-        public DBObjectList<ExpandoObject> CustomerStats(EFCoreDB<NorthwindContext> db)
+        public SQL2ObjectList<ExpandoObject> CustomerStats(EFCoreDB<NorthwindContext> db)
         {
             SQL sql = @"select c.CompanyName name, sum((o.UnitPrice*o.Quantity)) value from  'Order Details' o inner join orders d on o.OrderID=d.OrderID
                     inner join Customers c on c.CustomerID= d.CustomerID
@@ -77,7 +77,7 @@ inner join Products p on p.ProductID = o.ProductID order by o.OrderID asc";
             return (db.DBContext, sql, new EFCore.Extension.Region(0, 10));
         }
 
-        public DBObjectList<ExpandoObject> ProductStats(EFCoreDB<NorthwindContext> db)
+        public SQL2ObjectList<ExpandoObject> ProductStats(EFCoreDB<NorthwindContext> db)
         {
             SQL sql = @"select p.ProductName name, sum((o.UnitPrice*o.Quantity)) value from  'Order Details' o 
                     inner join Products p on o.ProductID= p.ProductID 
@@ -87,38 +87,38 @@ inner join Products p on p.ProductID = o.ProductID order by o.OrderID asc";
 
         public object Categories(EFCoreDB<NorthwindContext> db)
         {
-            return from a in db.DBContext.Categories
-                   select new
-                   {
-                       Count = db.DBContext.Products.Where(p => p.CategoryID == a.CategoryId).Count(),
-                       a.CategoryId,
-                       a.CategoryName,
-                       Description = Encoding.UTF8.GetString(a.Description)
-                   };
+            return (from a in db.DBContext.Categories
+                    select new
+                    {
+                        Count = db.DBContext.Products.Where(p => p.CategoryID == a.CategoryId).Count(),
+                        a.CategoryId,
+                        a.CategoryName,
+                        Description = Encoding.UTF8.GetString(a.Description)
+                    }).ToArray();
         }
 
         public object CategoriesSelectOptions(EFCoreDB<NorthwindContext> db)
         {
-            return from a in db.DBContext.Categories select new { label = a.CategoryName, value = a.CategoryId };
+            return (from a in db.DBContext.Categories select new { label = a.CategoryName, value = a.CategoryId }).ToArray();
         }
 
-        public DBObjectList<ExpandoObject> EmployeesSelectOptions(EFCoreDB<NorthwindContext> db)
+        public SQL2ObjectList<ExpandoObject> EmployeesSelectOptions(EFCoreDB<NorthwindContext> db)
         {
             return (db.DBContext, "select EmployeeID value, (FirstName || ' ' || LastName) label from employees", new EFCore.Extension.Region(0, 1000));
         }
 
-        public DBObjectList<ExpandoObject> CustomersSelectOptions(EFCoreDB<NorthwindContext> db)
+        public SQL2ObjectList<ExpandoObject> CustomersSelectOptions(EFCoreDB<NorthwindContext> db)
         {
             return (db.DBContext, "select CustomerID value,CompanyName label from customers", new EFCore.Extension.Region(0, 1000));
         }
 
 
-        public DBObjectList<ExpandoObject> CustomerCountrySelectOptions(EFCoreDB<NorthwindContext> db)
+        public SQL2ObjectList<ExpandoObject> CustomerCountrySelectOptions(EFCoreDB<NorthwindContext> db)
         {
             return (db.DBContext, "select DISTINCT country value from customers");
         }
 
-        public DBObjectList<ExpandoObject> Employees(EFCoreDB<NorthwindContext> db)
+        public SQL2ObjectList<ExpandoObject> Employees(EFCoreDB<NorthwindContext> db)
         {
             return (db.DBContext, "select *,(FirstName || ' '|| LastName) Name from employees", new EFCore.Extension.Region(0, 10000));
         }

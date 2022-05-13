@@ -28,8 +28,8 @@ namespace BeetleX.ESDocApp
                 vue.JsRewrite("/js/{group}-{v}.js").CssRewrite("/css/{group}-{v}.css");
                 resource.AddCss("element.css", "website.css")
                 .AddScript("vue.js", "axios.js", "beetlex4axios.js", "element.js", "website.js");
-                var document = new DocumentDB("document_test");
-                document.Init("http://localhost:9200").Wait(10000);
+var document = new DocumentDB("document_test");
+document.Init("http://localhost:9200").Wait(10000);
                 http["es-db"] = document;
                 ImportData(document);
             });
