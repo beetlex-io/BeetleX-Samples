@@ -1,0 +1,12 @@
+﻿package wsprotobuf;
+syntax = "proto3";
+
+message Register {
+    string Password=2;
+    string EMail=1;
+}
+message User {
+    string Name=1;
+    string Email=2;
+    double ResponseTime=3;
+}
