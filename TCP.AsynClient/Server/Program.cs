@@ -4,27 +4,47 @@ using System;
 
 namespace Server
 {
-    class Program : ServerHandlerBase
+    class Program : IApplication
     {
-        private static IServer server;
+        private static ServerBuilder<Program, User> server;
         public static void Main(string[] args)
         {
-            server = SocketFactory.CreateTcpServer<Program>();
-            //server.Options.DefaultListen.Port =9090;
-            //server.Options.DefaultListen.Host = "127.0.0.1";
-            server.Open();
+            server = new ServerBuilder<Program, User>();
+            server.SetOptions(option =>
+            {
+                option.DefaultListen.Port = 9090;
+                option.DefaultListen.Host = "127.0.0.1";
+            })
+            .OnStreamReceive(e =>
+            {
+                Console.WriteLine($"session:{e.Session}\t application:{e.Application}");
+                if (e.Reader.TryReadLine(out string name))
+                {
+                    Console.WriteLine(name);
+                    e.Writer.WriteLine("hello " + name);
+                    e.Flush();
+                }
+            })
+            .Run();
             Console.Read();
         }
-        public override void SessionReceive(IServer server, SessionReceiveEventArgs e)
+
+        public void Init(IServer server)
         {
-            var pipeStream = e.Stream.ToPipeStream();
-            if (pipeStream.TryReadLine(out string name))
-            {
-                Console.WriteLine(name);
-                e.Session.Stream.ToPipeStream().WriteLine("hello " + name);
-                e.Session.Stream.Flush();
-            }
-            base.SessionReceive(server, e);
+            Console.WriteLine("application init");
+        }
+    }
+
+    public class User : ISessionToken
+    {
+        public void Dispose()
+        {
+
+        }
+
+        public void Init(IServer server, ISession session)
+        {
+            Console.WriteLine("session token init");
         }
     }
 }

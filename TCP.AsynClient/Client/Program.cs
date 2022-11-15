@@ -18,6 +18,10 @@ namespace Client
                     Console.WriteLine(line);
                 }
             };
+            client.ClientError = (o, e) =>
+            {
+                Console.WriteLine(e.Error.Message);
+            };
             while (true)
             {
                 Console.Write("Enter Name:");
